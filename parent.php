@@ -16,14 +16,14 @@
       <div class="content">
         Add at least one <strong>Child</strong>.
       </div>
-      <a class="action-container" href="/?page=children-add">Add Children</a>
+      <a class="action-container" href="/children-add">Add Children</a>
     </div>
     <div class="block">
       <div class="icon-container"><i class="fas fa-tasks"></i></div>
       <div class="content">
         Assign <strong>Tasks</strong> to your children.
       </div>
-      <a class="action-container"  href="/?page=tasks-add">Add Tasks</a>
+      <a class="action-container"  href="/task-add">Add Tasks</a>
     </div>
   </div>
 </section>
