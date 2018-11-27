@@ -7590,7 +7590,8 @@ h5 {
   .blocks .block {
     width: 100%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    flex-direction: column; }
     .blocks .block .icon-container {
       align-items: center;
       width: 100%; }
