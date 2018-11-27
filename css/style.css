@@ -7645,7 +7645,10 @@ h5 {
 
 @media screen and (max-width: 600px) {
   .hero {
-    padding-top: -9.25rem; } }
+    padding: 2rem;
+    padding-top: -9.25rem; }
+    .hero .content h2 {
+      width: 100%; } }
 
 .field-group input {
   padding: 1rem;
@@ -7697,7 +7700,8 @@ footer {
 
 @media screen and (max-width: 600px) {
   .main-navigation {
-    margin-bottom: -9.25rem; } }
+    margin-bottom: -9.25rem;
+    padding: 2rem; } }
 
 .btn {
   border: 0;
