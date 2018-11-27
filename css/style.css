@@ -7595,7 +7595,7 @@ h5 {
     .blocks .block .icon-container {
       align-items: center;
       width: 100%; }
-    .blocks .block .action-container {
+    .blocks .block a.action-container {
       width: 100%; }
   .section {
     padding: 2rem; }
