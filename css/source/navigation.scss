@@ -1,0 +1,36 @@
+.main-navigation {
+  padding: 2rem 4rem;
+//  background: $blue-darkest;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 900;
+  left: 0;
+  right: 0;
+  margin-bottom: -7.25rem;
+  .logo {
+    span {
+      //display: none;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+  }
+  ul {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .main-navigation {
+    margin-bottom: -9rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-navigation {
+    margin-bottom: -9.25rem;
+  }
+}

@@ -1,0 +1,14 @@
+.field-group {
+  input {
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: 0;
+    border: 0;
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
+    font-family: $font-bold;
+    font-size: 1rem;
+  }
+}

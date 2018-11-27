@@ -1,0 +1,81 @@
+.btn {
+  border: 0;
+  color: #fff;
+  font-family: $font-bold;
+  background: $green;
+  padding: 1rem 2.75rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  font-weight: bold;
+  box-shadow: 1px 2px 1rem rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease-in-out;
+  &:hover {
+      color: #fff;
+      background: $green-dark;
+      text-decoration: none;
+      transition: all 0.25s ease-in-out;
+  }
+  &.hot {
+    background: $green-dark;
+    transition: all 0.25s ease-in-out;
+      &:hover {
+        background: $green-darkest;
+        transition: all 0.25s ease-in-out;
+      }
+  }
+  &.white {
+    background: rgb(255,255,255);
+    color: $blue-dark;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    i {
+      margin-left: 0;
+    }
+    &:hover {
+      background: rgb(255,255,255);
+    }
+  }
+  i {
+    margin-left: 0.5rem;
+  }
+}
+
+a.btn-link,
+a.btn-link i {
+  color: rgb(255,255,255);
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+.dark {
+  .btn {
+    color: $blue-dark;
+    background: rgba(255,255,255,1);
+    margin-right: 1rem;
+    transition: all 0.25s ease-in-out;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      background: rgb(214, 215, 214);
+      transition: all 0.25s ease-in-out;
+    }
+    &.hot {
+      color: #fff;
+      background: $green;
+      transition: all 0.25s ease-in-out;
+      &:hover {
+        background: $green-dark;
+        transition: all 0.25s ease-in-out;
+      }
+    }
+  }
+}
