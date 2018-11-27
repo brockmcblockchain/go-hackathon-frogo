@@ -7586,6 +7586,21 @@ h5 {
   html {
     font-size: 14px; } }
 
+@media screen and (max-width: 600px) {
+  .blocks .block {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+    .blocks .block .icon-container {
+      align-items: center;
+      width: 100%; }
+    .blocks .block .action-container {
+      width: 100%; }
+  .section {
+    padding: 2rem; }
+    .section p {
+      width: 100%; } }
+
 .hero {
   padding: 4rem;
   background: url("../images/scott-webb-59043-unsplash.jpg") no-repeat;
