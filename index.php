@@ -36,7 +36,7 @@
     <ul class="debug-links">
       <li><a href="/parent">Parent Dashboard</a></li>
       <li><a href="/task-list">TaskList/Child Dashboard</a></li>
-      <li><a href="/task-listi-manage">TaskList Managment (parent)</a></li>
+      <li><a href="/task-list-manage">TaskList Managment (parent)</a></li>
       <li><a href="/task-add">Add New Tasks</a></li>
       <li><a href="/children-add">Add New Child</a></li>
     </ul>
