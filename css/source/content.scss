@@ -161,8 +161,11 @@ h5 {
 
 .responsive {
   position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
   overflow: hidden;
-  padding-top: 56.25%;
+  margin-bottom: 2rem;
 }
 
 .responsive iframe {

@@ -8,9 +8,7 @@
 <section class="section">
   <h3>Welcome to Fro-Go</h3>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, diam nec sollicitudin rutrum, mauris enim tristique magna, eget cursus erat lacus sit amet odio.</p>
-  <div class="centered-content">
     <div class="responsive"><iframe src="https://spark.adobe.com/video/fJ2l4cfzkCTBU/embed" width="960" height="540" frameborder="0" allowfullscreen></iframe></div>
-  </div>
   <div class="centered-content">
     <a href="/parent" class="centered login-btn btn">Get Started Today</a>
   </div>
