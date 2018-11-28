@@ -3,6 +3,7 @@
 
   <h3>Welcome!</h3>
   <p>Thanks for Signing up.  To use our service you will need to complete the following:</p>
+  <div class="test-metamask">TEST METAMASK</div>
   <div class="blocks">
     <div class="block">
       <div class="icon-container"><i class="fas fa-shopping-cart"></i></div>
