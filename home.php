@@ -12,7 +12,7 @@
     <div class="responsive"><iframe src="https://spark.adobe.com/video/fJ2l4cfzkCTBU/embed" width="960" height="540" frameborder="0" allowfullscreen></iframe></div>
   </div>
   <div class="centered-content">
-    <a href="" class="centered login-btn btn">Get Started Today</a>
+    <a href="/parent" class="centered login-btn btn">Get Started Today</a>
   </div>
 </section>
 <section class="section">

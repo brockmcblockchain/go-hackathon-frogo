@@ -7581,7 +7581,8 @@ h5 {
   height: 0; }
 
 .responsive object,
-.responsive embed {
+.responsive embed,
+.responsive iframe {
   position: absolute;
   top: 0;
   left: 0;
