@@ -1,21 +1,22 @@
 <section class="hero">
   <div class="content">
-    <h2>Introducing the Green Chore Bounty platform</h2>
-    <h4>Teach your children immutable responsibility.</h4>
+    <h2>Incentivising the future to protect the future</h2>
+    <h4>Rewarding today’s youth to complete activities that support a greener, healthier world</h4>
     <a class="login-btn hot btn" href="#login">Get started Today   <i class="fas fa-check"></i></a>
   </div>
 </section>
 <section class="section">
   <h3>Welcome to Fro-Go</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, diam nec sollicitudin rutrum, mauris enim tristique magna, eget cursus erat lacus sit amet odio.</p>
+  <p>At Fro-GO we are passionate about making small changes to make a big difference to our planet. The Fro-GO tool enables parents/guardians/mentors to actively encourage today’s youth to make those changes and turn them into habits.</p>
     <div class="responsive"><iframe src="https://spark.adobe.com/video/fJ2l4cfzkCTBU/embed" width="960" height="540" frameborder="0" allowfullscreen></iframe></div>
+  <p>It doesn’t just stop there though. Social responsibility and community awareness are also core to the Fro-GO ethos. Utilising the many functions available within tasks you can create large team activities supported by not only parents but also large organisations or local Government.</p>
   <div class="centered-content">
     <a href="/parent" class="centered login-btn btn">Get Started Today</a>
   </div>
 </section>
 <section class="section">
   <h3>For Kids</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, diam nec sollicitudin rutrum, mauris enim tristique magna, eget cursus erat lacus sit amet odio.</p>
+  <p>Using Fro-GO encourages the youth of today to collaborate together and make their world a better place. This not only makes them better custodians of the planet but also better team players, task planners as well as giving them increased technological awareness.</p>
   <div class="cards">
     <div class="card">
       <i class="fas fa-chalkboard-teacher"></i>
@@ -45,7 +46,7 @@
 </section>
 <section class="section">
   <h3>For Parents</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, diam nec sollicitudin rutrum, mauris enim tristique magna, eget cursus erat lacus sit amet odio.</p>
+  <p>As a parent, the future of your loved one(s) is never far away from your thoughts. Now with Fro-GO you can not only make a difference to the planet by nurturing positive green habits but equip them with life skills that will stay with them forever.</p>
   <div class="cards">
     <div class="card">
       <i class="fas fa-wrench"></i>
@@ -75,7 +76,12 @@
 </section>
 <section class="section">
   <h3>How It Works</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, diam nec sollicitudin rutrum, mauris enim tristique magna, eget cursus erat lacus sit amet odio.</p>
+  <p>Fro-GO utilises blockchain technology and all incentives are made through the crypto currency GoChain(GO). To use the tool you first need to set up a wallet, this is where your incentive payments will live once you have purchased from an exchange. Your child will also need a wallet to receive the incentive payments but the process is very quick and can be done on their behalf. Once created you can then access your account <em>(it will be generated automatically from your wallet)</em>.</p>
+<p>Now your account is set up you can link to your child’s wallet and then assign tasks with incentives that you decide upon. Your child can then complete the task and then once completed they can request your acceptance and you confirm – That’s it!</p>
+<p>There are many further options available in the tool such as the enabling of incentive erosion to encourage rapid completion of tasks, global tasks that allows multiple task assignees to work together to complete.</p>
+<p>Incentives when received can be used for many things. They can be simply held as an investment in the GoChain network, they can be used to purchase items at partner stores <em>(coming soon – Fro-GO discounted store)</em> they can be used at one of the many other applications that use Go or they can be exchanged back to local currencies.</p>
+<p><strong>Full user instructions can be found [ here ]</strong></p>
+</p>
 </section>
 <section class="section dark">
   <h3>Why <b>GoChain</b></h3>
@@ -109,7 +115,7 @@
 </section>
 <section class="section">
   <h3>Try it free today!</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, diam nec sollicitudin rutrum, mauris enim tristique magna, eget cursus erat lacus sit amet odio.</p>
+  <p>It is free to create an account for both Parents and children so sign up today and see how easy it is to set a positive role model for the next generation.</p>
   <div class="centered-content">
     <a href="" class="centered login-btn btn">Get Started Today</a>
   </div>
