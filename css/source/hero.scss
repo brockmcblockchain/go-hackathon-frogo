@@ -36,6 +36,7 @@
       font-family: $font;
       color: #fff;
       margin-bottom: 3rem;
+      width: 30rem;
     }
   }
 }
@@ -51,7 +52,7 @@
     padding: 2rem;
     padding-top: -9.25rem;
     .content {
-      h2 {
+      h2, h4 {
         width: 100%;
       }
     }

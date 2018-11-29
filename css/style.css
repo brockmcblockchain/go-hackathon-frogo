@@ -7655,7 +7655,8 @@ h5 {
       font-size: 1.4rem;
       font-family: "Lato", sans-serif;
       color: #fff;
-      margin-bottom: 3rem; }
+      margin-bottom: 3rem;
+      width: 30rem; }
 
 @media screen and (max-width: 790px) {
   .hero {
@@ -7665,7 +7666,7 @@ h5 {
   .hero {
     padding: 2rem;
     padding-top: -9.25rem; }
-    .hero .content h2 {
+    .hero .content h2, .hero .content h4 {
       width: 100%; } }
 
 .field-group input {
