@@ -7751,7 +7751,7 @@ footer {
     display: flex; }
 
 header.header.inner {
-  height: 20vh;
+  height: 14vh;
   background: #1D976C;
   background: -webkit-linear-gradient(to bottom, #35c5a0, #1D976C);
   background: linear-gradient(to bottom, #35c5a0, #1D976C); }
@@ -7765,7 +7765,9 @@ header.header.inner {
 @media screen and (max-width: 600px) {
   .main-navigation {
     margin-bottom: -9.25rem;
-    padding: 2rem; } }
+    padding: 2rem; }
+  header.header.inner {
+    height: 12vh; } }
 
 .btn {
   border: 0;

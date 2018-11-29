@@ -33,7 +33,7 @@
 }
 
 header.header.inner {
-  height: 20vh;
+  height: 14vh;
   background: #1D976C;
   background: -webkit-linear-gradient(to bottom, $green, #1D976C);
   background: linear-gradient(to bottom, $green, #1D976C);
@@ -52,5 +52,8 @@ header.header.inner {
   .main-navigation {
     margin-bottom: -9.25rem;
     padding: 2rem;
+  }
+  header.header.inner {
+    height: 12vh;
   }
 }
