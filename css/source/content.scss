@@ -56,7 +56,7 @@ h5 {
     margin-right: auto;
     a.action-container {
       padding: 2rem;
-      width: 20%;
+      width: 24%;
       background: rgb(250, 248, 250);
       color: $blue-dark;
       text-align: center;
@@ -65,6 +65,7 @@ h5 {
       display: flex;
       align-items: center;
       justify-content: space-around;
+      border-left: 1px solid $green-transparent;
       &.warning {
         color: red;
         &:hover {
@@ -73,9 +74,12 @@ h5 {
         }
       }
       &:hover {
-        color: rgb(255,255,255);
-        background: $blue-dark;
+        color: rgb(0,0,0);
+        background: $green-transparent;
         transition: all 0.25s ease-in-out;
+      }
+      i {
+        margin-right: 1rem;
       }
     }
     .icon-container {
@@ -157,6 +161,12 @@ h5 {
 .centered-content {
   display: flex;
   justify-content: center;
+  .btn {
+    margin-left: 1rem;
+    &:first-of-type {
+      margin-left: 0rem;
+    }
+  }
 }
 
 .responsive {
@@ -178,6 +188,28 @@ h5 {
   height: 100%;
   border: 0;
 }
+
+.new-child-container,
+.new-task-container {
+  display: none;
+  &.active {
+    display: block;
+    padding: 2rem;
+    background: $green-transparent;
+    border-radius: 0.5rem;
+  }
+}
+
+.section-header {
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  .faded {
+    color: $grey-light;
+  }
+}
+
 
 @media screen and (max-width: 790px) {
   .cards .card {

@@ -26,6 +26,14 @@
         transition: all 0.25s ease-in-out;
       }
   }
+  &.black {
+    background: #3e3e3e;
+    color: #fff;
+    &:hover {
+      background: #2e2e2e;
+      color: #fff;
+    }
+  }
   &.white {
     background: rgb(255,255,255);
     color: $blue-dark;
@@ -33,6 +41,20 @@
     margin-bottom: 2rem;
     i {
       margin-left: 0;
+    }
+    .fa-plus {
+      display: inline-block;
+    }
+    .fa-minus {
+      display: none;
+    }
+    &.open {
+      .fa-plus {
+        display: none;
+      }
+      .fa-minus {
+        display: inline-block;
+      }
     }
     &:hover {
       background: rgb(255,255,255);

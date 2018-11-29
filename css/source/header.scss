@@ -7,3 +7,15 @@
   padding: 4rem;
   padding-top: 9rem;
 }
+.go-balance {
+  font-family: $font-bold;
+  font-size: 2rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  i {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    color: $blue-dark;
+  }
+}
