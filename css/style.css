@@ -7522,8 +7522,7 @@ h5 {
         margin-right: 1rem; }
     .blocks .block .icon-container {
       padding: 2rem;
-      background: #35c5a0;
-      background: #faf8fa;
+      background: rgba(239, 239, 239, 0.3);
       color: #22222b;
       display: flex;
       justify-content: space-around;
