@@ -56,9 +56,9 @@ h5 {
     margin-right: auto;
     a.action-container {
       padding: 2rem;
-      width: 24%;
-      background: rgb(250, 248, 250);
-      color: $blue-dark;
+      width: 20%;
+      background: $green;
+      color: rgb(255, 255, 255);
       text-align: center;
       text-decoration: none;
       transition: all 0.25s ease-in-out;
@@ -66,16 +66,20 @@ h5 {
       align-items: center;
       justify-content: space-around;
       border-left: 1px solid $green-transparent;
+      transition: all 0.25s ease-in-out;
       &.warning {
-        color: red;
+        color: #6d2020;
+        background: #b95858;
+        transition: all 0.25s ease-in-out;
         &:hover {
-          background: #b95858;
-          color: rgb(255,255,255);
+          color: #b95858;
+          background: #7b1919;
+          transition: all 0.25s ease-in-out;
         }
       }
       &:hover {
-        color: rgb(0,0,0);
-        background: $green-transparent;
+        color: rgb(255,255,255);
+        background: $green-dark;
         transition: all 0.25s ease-in-out;
       }
       i {
@@ -85,7 +89,8 @@ h5 {
     .icon-container {
       padding: 2rem;
       background: $green;
-      color: rgb(255,255,255);
+      background: rgb(250, 248, 250);
+      color: $blue-dark;
       display: flex;
       justify-content: space-around;
       align-items: center;
