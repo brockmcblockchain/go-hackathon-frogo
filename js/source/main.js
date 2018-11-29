@@ -43,6 +43,11 @@ window.onload = function () {
     document.getElementById('NewTask').classList.toggle('active');
   });
 
+  var cancelTask = document.getElementsByClassName('cancelTask');
+  onClickDoCallback(cancelTask, 'remove', 'open', function () {
+    document.getElementById('NewTask').classList.remove('active');
+  });
+
   // Allow the creation of multiple tasks.
   var addNewTask = document.getElementsByClassName("AddNewTask");
   if(addNewTask.length){

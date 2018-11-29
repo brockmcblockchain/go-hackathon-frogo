@@ -76,21 +76,26 @@
         <div class="icon-container"><i class="fas fa-tasks"></i></div>
         <div class="content">
             <div class="field-group">
-              <input name="task[]" type="text" placeholder="Task Description" />
+              <input name="task" type="text" placeholder="Task Description" />
             </div>
             <div class="field-group">
-              <input name="bounty[]" type="text" placeholder="Bounty In GO" />
+              <input name="endDate" type="date" placeholder="End Date" />
+            </div>
+            <div class="field-group">
+              <input name="bounty" type="text" placeholder="Bounty In GO" />
             </div>
         </div>
       </div>
       <input type="hidden" name="childId" value="" />
     </div>
   </form>
+  <?php /*
   <div class="centered-content">
     <a href="#addAnotherTask" class="btn AddNewTask white"><i class="fas fa-plus"></i></a>
   </div>
+  */ ?>
   <div class="centered-content">
-    <a href="#addChild" class="btn">Save Tasks</a>
+    <a href="#addChild" class="btn">Save Tasks</a> <a href="#cancelTask" class="btn cancel black cancelTask">Cancel</a>
   </div>
   </div>
 
