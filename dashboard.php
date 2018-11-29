@@ -1,4 +1,3 @@
-<section class="inner-header"></section>
 <section class="section">
 
 <div id="Parent" class="dashboard parent-dashboard">

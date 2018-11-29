@@ -9,13 +9,22 @@
   left: 0;
   right: 0;
   margin-bottom: -7.25rem;
-  .logo {
-    span {
-      //display: none;
-      font-size: 2rem;
-      color: #fff;
-      font-weight: 800;
-      text-transform: uppercase;
+  a {
+    .logo {
+      span {
+        //display: none;
+        font-size: 2rem;
+        color: #fff;
+        font-weight: 800;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+      .logo span {
+        text-decoration: none;
+      }
     }
   }
   ul {

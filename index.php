@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="dapp">
-    <header class="header">
+    <header class="header <?php echo ($page == 'home') ? 'home' : 'inner'; ?>">
       <nav class="main-navigation" id="mainNavigation">
         <?php if($page == 'home'): ?>
           <a href="/"><h1 class="logo"><span>Fro-Go</span></h1></a>
@@ -20,7 +20,7 @@
           <a href="/dashboard"><h1 class="logo"><span>Fro-Go</span></h1></a>
         <?php endif; ?>
         <?php if($page == 'home'): ?>
-          <a class="login-btn btn" href="/signin">Signin/up</a>
+          <a class="login-btn btn" href="/dashboard">Signin/up</a>
         <?php else: ?>
           <div id="GoBalance" class="go-balance"></div>
         <?php endif; ?>

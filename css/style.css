@@ -7741,11 +7741,16 @@ footer {
   left: 0;
   right: 0;
   margin-bottom: -7.25rem; }
-  .main-navigation .logo span {
+  .main-navigation a .logo span {
     font-size: 2rem;
     color: #fff;
     font-weight: 800;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    text-decoration: none; }
+  .main-navigation a:hover {
+    text-decoration: none; }
+    .main-navigation a:hover .logo span {
+      text-decoration: none; }
   .main-navigation ul {
     display: flex; }
 
