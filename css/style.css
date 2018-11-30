@@ -7722,6 +7722,9 @@ h5 {
   .quick-start-step.hidden {
     display: none; }
 
+.child-template {
+  display: none; }
+
 .field-group input {
   padding: 1rem;
   border-radius: 1rem;

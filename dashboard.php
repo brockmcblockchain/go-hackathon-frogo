@@ -16,7 +16,6 @@
         <div class="icon-container"><i class="fas fa-child"></i></div>
         <div class="content">
           Add at least one <strong>Child</strong>.
-          <div class="dueDate">Month, 20th 2018</div>
         </div>
         <a class="action-container" href="#children">Add Children</a>
       </div>
@@ -24,7 +23,6 @@
         <div class="icon-container"><i class="fas fa-tasks"></i></div>
         <div class="content">
           Assign <strong>Tasks</strong> to your children.
-          <div class="dueDate">Month, 20th 2018</div>
         </div>
         <a class="action-container"  href="#tasks">Add Tasks</a>
       </div>
@@ -37,12 +35,10 @@
     <h2>Children</h2>
   </div>
   <div class="blocks">
-    <div class="block">
+    <div class="block child-template cloneable">
       <div class="icon-container"><i class="fas fa-child"></i></div>
-      <div class="content">
-        {{ Child Nickame || Child #}}
-      </div>
-      <a class="action-container addTaskForChild" data-child="{{ Child.id }}"  href="#addTasks">Add Tasks</a>
+      <div class="content child-name"></div>
+      <a class="action-container addTaskForChild" data-child="" href="#addTasks">Add Tasks</a>
     </div>
   </div>
   <div class="centered-content">
@@ -57,16 +53,16 @@
         <div class="content">
           <form id="AddChild">
             <div class="field-group">
-              <input name="wallet" type="text" placeholder="GO Wallet Address" />
+              <input id="NewChildWalletAddress" name="wallet" type="text" placeholder="GO Wallet Address" />
             </div>
             <div class="field-group">
-              <input name="nickname" type="text" placeholder="Child Nickname" />
+              <input id="NewChildNickname" name="nickname" type="text" placeholder="Child Nickname" />
             </div>
           </form>
         </div>
       </div>
       <div class="centered-content">
-        <a href="#addChild" class="btn">Save Child</a> <a href="#cancel" class="btn black cancelChild">Cancel</a>
+        <a href="#addChild" class="btn addNewChildSubmit">Save Child</a> <a href="#cancel" class="btn black cancelChild">Cancel</a>
       </div>
     </div>
   </div>
