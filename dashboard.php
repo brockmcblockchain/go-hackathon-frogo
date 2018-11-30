@@ -1,31 +1,33 @@
 <section class="section">
 
 <div id="Parent" class="dashboard parent-dashboard">
-  <h3>Quick Start Guide</h3>
-  <p>Thanks for Signing up.  To use our service you will need to complete the following:</p>
-  <div class="blocks">
-    <div class="block">
-      <div class="icon-container"><i class="fas fa-shopping-cart"></i></div>
-      <div class="content">
-        Fund your account by <strong>Buying Go</strong>
+  <div id="QuickStartGuide" class="quick-start-guide">
+    <h3>Quick Start Guide</h3>
+    <p>Thanks for Signing up.  To use our service you will need to complete the following:</p>
+    <div class="blocks">
+      <div class="block quick-start-step" id="BuyGo">
+        <div class="icon-container"><i class="fas fa-shopping-cart"></i></div>
+        <div class="content">
+          Fund your account by <strong>Buying Go</strong>
+        </div>
+        <a class="action-container" href="https://www.binance.com/?ref=12087050" target="_blank">Buy Go</a>
       </div>
-      <a class="action-container" href="https://www.binance.com/?ref=12087050" target="_blank">Buy Go</a>
-    </div>
-    <div class="block">
-      <div class="icon-container"><i class="fas fa-child"></i></div>
-      <div class="content">
-        Add at least one <strong>Child</strong>.
-        <div class="dueDate">Month, 20th 2018</div>
+      <div class="block quick-start-step" id="AddFirstChild">
+        <div class="icon-container"><i class="fas fa-child"></i></div>
+        <div class="content">
+          Add at least one <strong>Child</strong>.
+          <div class="dueDate">Month, 20th 2018</div>
+        </div>
+        <a class="action-container" href="#children">Add Children</a>
       </div>
-      <a class="action-container" href="#children">Add Children</a>
-    </div>
-    <div class="block">
-      <div class="icon-container"><i class="fas fa-tasks"></i></div>
-      <div class="content">
-        Assign <strong>Tasks</strong> to your children.
-        <div class="dueDate">Month, 20th 2018</div>
+      <div class="block quick-start-step" id="AddFirstTask">
+        <div class="icon-container"><i class="fas fa-tasks"></i></div>
+        <div class="content">
+          Assign <strong>Tasks</strong> to your children.
+          <div class="dueDate">Month, 20th 2018</div>
+        </div>
+        <a class="action-container"  href="#tasks">Add Tasks</a>
       </div>
-      <a class="action-container"  href="#tasks">Add Tasks</a>
     </div>
   </div>
 
@@ -129,7 +131,7 @@
     </div>
   </div>
 
-  <div id="ChildDashboard" class="dashboard child-dashboard">
+  <div id="Child" class="dashboard child-dashboard">
     <h3>Child Dashboard</h3>
     <p>Below you will find a list of assigned an available tasks for you to work.  Once you finish each job you can submit it for review to the Task Creator.  Once approved you will be instantly credited with the bounty.  Keep in mind the bounties decrease the more time passes from when the task was created.</p>
     <div class="blocks">

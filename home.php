@@ -1,7 +1,7 @@
 <section class="hero">
   <div class="content">
     <h2>Incentivising the future to protect the future</h2>
-    <h4>Rewarding today’s youth to complete activities that support a greener, healthier world</h4>
+    <h4>Rewarding today’s youth for completing activities that support a greener, healthier world</h4>
     <a class="login-btn hot btn" href="#login">Get started Today   <i class="fas fa-check"></i></a>
   </div>
 </section>
@@ -22,21 +22,21 @@
       <i class="fas fa-chalkboard-teacher"></i>
       <div class="content">
         <h5>Teaches Responsibilities</h5>
-        <p>Let your children learn to manage a to do list and learn about getting things done swiftly over procrastinating.</p>
+        <p>Open the opportunity for your child to manage a to do list and learn to prioritise effectively.</p>
       </div>
     </div>
     <div class="card">
       <i class="fas fa-hand-holding-seedling"></i>
       <div class="content">
         <h5>Have Fun Helping Out</h5>
-        <p>Children quickly learn with our system getting things done fast can be fun and they are incentivised to do so.</p>
+        <p>Reward prompt completion of tasks through time bound incentives. Teaching the importance of delivery within timeframes and the enjoyment it can bring.</p>
       </div>
     </div>
     <div class="card">
       <i class="fas fa-gift"></i>
       <div class="content">
         <h5>Rewards Hard Work</h5>
-        <p>Each task can earn a bounty so your children can cash them out for whatever they wish or even use their coins for other parts of the GoChain Ecosystem.</p>
+        <p>The rewards set against each task are issued to your child automatically. They can be used to cash out to local currencies or to access services in other parts of the GoChain EcoSystem.</p>
       </div>
     </div>
   </div>
@@ -51,22 +51,22 @@
     <div class="card">
       <i class="fas fa-wrench"></i>
       <div class="content">
-        <h5>Empower Your Family</h5>
-        <p>Let your children learn to pitch in and the value of hard work.</p>
+        <h5>Teach Life Skills</h5>
+        <p>Demonstrate to your child the value of teamwork and responsibility</p>
       </div>
     </div>
     <div class="card">
       <i class="fas fa-mobile"></i>
       <div class="content">
-        <h5>Teach Technology</h5>
-        <p>Our system uses digital currency powerd by GoChain -- a green, cost effective, and nearly instant technology.</p>
+        <h5>Introduce Revolutionary Technology</h5>
+        <p>Fro-GO is powered by GoChain, a revolutionary blockchain technology. It is a low energy, cost effective and nearly instant technology.</p>
       </div>
     </div>
     <div class="card">
       <i class="fas fa-tree-alt"></i>
       <div class="content">
-        <h5>Build Green Habbits</h5>
-        <p>Let your children learn the positive feeling about helping the Earth and rally their community and friends.</p>
+        <h5>Instill Environmentally-friendly Habits</h5>
+        <p>Teach positive habits by setting tasks that help reduce consumption and manage waste responsibly. </p>
       </div>
     </div>
   </div>
@@ -85,7 +85,7 @@
 </section>
 <section class="section dark">
   <h3>Why <b>GoChain</b></h3>
-  <p>Fro-Go uses GoChain as it is one of the few blockchains commited to making the technology not bad for the environment.  They also are many times faster and cheaper than other blockchain technologies.  This allows us to put more value in your children's hands for their hard work without waiting or losing some to a company who is just transfering your money for you.</p>
+  <p>Fro-GO uses GoChain as it is dedicated to delivering a blockchain that is not only fast and cost effective but also has a significantly reduced burden on the environment when compared to the more common blockchains like Bitcoin and Ethereum. The socially conscious approach to the technology means that we can put more value into your child’s hands without costing the Earth!</p>
   <div class="cards">
     <div class="card">
       <i class="fas fa-wrench"></i>

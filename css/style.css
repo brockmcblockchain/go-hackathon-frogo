@@ -7710,6 +7710,18 @@ h5 {
     .hero .content h2, .hero .content h4 {
       width: 100%; } }
 
+.dashboard,
+.quick-start-guide {
+  display: none; }
+  .dashboard.active,
+  .quick-start-guide.active {
+    display: block; }
+
+.quick-start-step {
+  display: flex; }
+  .quick-start-step.hidden {
+    display: none; }
+
 .field-group input {
   padding: 1rem;
   border-radius: 1rem;

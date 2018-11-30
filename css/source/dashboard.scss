@@ -1,0 +1,13 @@
+.dashboard,
+.quick-start-guide {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.quick-start-step {
+  display: flex;
+  &.hidden {
+    display: none;
+  }
+}

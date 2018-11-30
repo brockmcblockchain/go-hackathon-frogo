@@ -1,7 +1,6 @@
 'use strict';
 
 window.onload = function () {
-  var wb3 = 0;
   try {
     var myWeb3 = new Web3(web3.currentProvider || new Web3.providers.HttpProvider("https://testnet-rpc.gochain.io:443"));
     var web3read = new Web3(new Web3.providers.HttpProvider("https://testnet-rpc.gochain.io:443"));
@@ -13,16 +12,29 @@ window.onload = function () {
     var contractAddress = '0xdeB51513e38eC049fb8E3774f321dD8d17855997';
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)
-    wb3                  = 1;
-    /*
-    contractInstance.AddChild.sendTransaction('0xcbFed401B68a8C8F5D97536f21b694DFD2220126', 'Bobby', { from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress }, function (err, result) {
-      if (!err) {
-        console.log("Receiver has been set: " + result);
-      } else {
-        console.log(err);
+
+    var dashboard = 'Child';
+    var hasChildren = 0;
+    var hasAddedTasks = 0;
+    checkIfChild().then(function(isChild){
+      console.log('is child ?', isChild);
+      if(isChild == false){
+        dashboard = 'Parent';
+        hasChildren = 0;
+        checkForChildren().then(function(childrenCount){
+          var result = childrenCount.filter(obj => {
+            console.log(obj);
+            return obj !== "0x";
+          });
+          console.log(result);
+          if(result.length > 0){
+            hasChildren = 1;
+          }
+        });
+        displayLayout(dashboard);
       }
     });
-    */
+
     getActiveTasks().then(function(data){
       console.log('here are your active tasks', data);
     });
@@ -33,6 +45,7 @@ window.onload = function () {
 
 
   var account = 0;
+  var hasBalance = 0;
   if (typeof window.web3 === 'undefined') {
     console.error("Please use a web3 browser");
   } else {
@@ -43,6 +56,9 @@ window.onload = function () {
         account = result[0];
         getBalance(account).then(function (balance) {
           var trueBalance = '<i class="fas fa-usd-circle"></i> ' + web3.fromWei(balance, "ether").toFixed(2) + ' GO';
+          if(web3read.fromWei(balance, "ether").toFixed(2) > 0){
+            hasBalance = 1;
+          }
           document.getElementById("GoBalance").innerHTML = trueBalance;
         });
       }
@@ -113,15 +129,30 @@ window.onload = function () {
 
   }
 
-  function metaMaskAuth(){
-    console.log('meta mask!');
+  function displayLayout(layout){
+    document.getElementById('' + layout + '').classList.add('active');
+    if(layout == 'Parent'){
+      displayQuickstart();
+    }
+  }
 
-  };
-
-  function getMetaMaskInstance(){
-    var myWeb3 = new Web3(web3.currentProvider);
-    myWeb3.eth.defaultAccount = web3.eth.defaultAccount;
-    return myWeb3;
+  function displayQuickstart(){
+    var showStartGuide = 3;
+    if(hasBalance){
+      document.getElementById('BuyGo').classList.add('hidden');
+      showStartGuide--;
+    }
+    if (hasChildren) {
+      document.getElementById('AddFirstChild').classList.add('hidden');
+      showStartGuide--;
+    }
+    if (hasAddedTasks) {
+      document.getElementById('AddFirstTask').classList.add('hidden');
+      showStartGuide--;
+    }
+    if(showStartGuide){
+      document.getElementById('QuickStartGuide').classList.add('active');
+    }
   }
 
   function getAccount(){
@@ -180,6 +211,18 @@ window.onload = function () {
     var p = (typeof page !== 'undefined' && page > 0) ? page : 1;
     return new Promise(function (resolve, reject) {
       contractInstance.getActiveTaskIDs.call(p, function (error, result) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  }
+
+  function checkForChildren(){
+    return new Promise(function (resolve, reject) {
+      contractInstance.getAllChildren.call(function (error, result) {
         if (error) {
           reject(error);
         } else {

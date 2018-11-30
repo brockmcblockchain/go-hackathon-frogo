@@ -2,6 +2,7 @@
 // Get modules
 var gulp       = require('gulp');
 var sass       = require('gulp-sass');
+var babel      = require('gulp-babel');
 var uglify     = require('gulp-uglify');
 var rename     = require('gulp-rename');
 var imagemin   = require('gulp-imagemin');
@@ -21,6 +22,9 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
   gulp.src('js/source/*.js')
     .pipe(plumber())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(uglify())
     .pipe(rename('main.js'))
     .pipe(gulp.dest('js'));4
