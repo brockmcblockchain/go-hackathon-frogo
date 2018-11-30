@@ -38,6 +38,12 @@ h5 {
     }
 }
 
+.dueDate {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: $font;
+  font-weight: 800;
+}
+
 .blocks {
   display: flex;
   justify-content: space-between;
@@ -245,6 +251,12 @@ h5 {
     }
     a.action-container {
       width: 100%;
+      flex-direction: column;
+      i {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0.6rem;
+      }
     }
   }
   .section {

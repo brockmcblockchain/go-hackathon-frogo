@@ -15,6 +15,7 @@
       <div class="icon-container"><i class="fas fa-child"></i></div>
       <div class="content">
         Add at least one <strong>Child</strong>.
+        <div class="dueDate">Month, 20th 2018</div>
       </div>
       <a class="action-container" href="#children">Add Children</a>
     </div>
@@ -22,6 +23,7 @@
       <div class="icon-container"><i class="fas fa-tasks"></i></div>
       <div class="content">
         Assign <strong>Tasks</strong> to your children.
+        <div class="dueDate">Month, 20th 2018</div>
       </div>
       <a class="action-container"  href="#tasks">Add Tasks</a>
     </div>
@@ -111,6 +113,7 @@
       <div class="icon-container"><span>10 Go</span></div>
       <div class="content">
         Take a shower <strong>under 5 Minutes</strong>
+        <div class="dueDate">Month, 20th 2018</div>
       </div>
       <a class="action-container" href="#markAsCompleted"><i class="fas fa-check-double"></i>  Accept</a>
       <a class="action-container warning" href="#markAsCompleted"><i class="fas fa-ban"></i> Reject</a>
@@ -119,6 +122,7 @@
       <div class="icon-container"><span>5 Go</span></div>
       <div class="content">
         Pick up your clothes in the hallway.
+        <div class="dueDate">Month, 20th 2018</div>
       </div>
       <a class="action-container" href="#markAsCompleted"><i class="fas fa-check-double"></i> Accept</a>
       <a class="action-container warning" href="#markAsCompleted"><i class="fas fa-ban"></i> Reject</a>
@@ -133,6 +137,7 @@
         <div class="icon-container"><span>10 Go</span></div>
         <div class="content">
           Take a shower <strong>under 5 Minutes</strong>
+          <div class="dueDate">Month, 20th 2018</div>
         </div>
         <a class="action-container" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
       </div>
@@ -140,6 +145,7 @@
         <div class="icon-container"><span>5 Go</span></div>
         <div class="content">
           Pick up your clothes in the hallway.
+          <div class="dueDate">Month, 20th 2018</div>
         </div>
         <a class="action-container" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
       </div>
@@ -147,6 +153,7 @@
         <div class="icon-container"><span>100 Go</span></div>
         <div class="content">
           Clean up the entire street with a toothbrush that you found in the neighbor's trash
+          <div class="dueDate">Month, 20th 2018</div>
         </div>
         <a class="action-container" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
       </div>

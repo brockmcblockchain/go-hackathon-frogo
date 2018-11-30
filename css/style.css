@@ -7477,6 +7477,11 @@ h5 {
     padding-bottom: 2rem;
     display: block; }
 
+.dueDate {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: "Lato", sans-serif;
+  font-weight: 800; }
+
 .blocks {
   display: flex;
   justify-content: space-between;
@@ -7645,7 +7650,12 @@ h5 {
       align-items: center;
       width: 100%; }
     .blocks .block a.action-container {
-      width: 100%; }
+      width: 100%;
+      flex-direction: column; }
+      .blocks .block a.action-container i {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0.6rem; }
   .section {
     padding: 2rem; }
     .section p {
