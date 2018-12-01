@@ -102,6 +102,7 @@ window.onload = function () {
     console.log('sending..', _add, _nickname);
     contractInstance.AddChild.sendTransaction(_add, _nickname,{from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
       if(!err) {
+        // TODO: Change View
         // CLEAR CHILD FORM
         // ADD NEW CHILD RECORD TO List
         console.log("Receiver has been set: " + result);
@@ -121,6 +122,7 @@ window.onload = function () {
     console.log('sending..', _childAddress, _taskdescription, _tasklength, _taskbounty, _degrade, _decayrate);
     contractInstance.AddTask.sendTransaction(_childAddress, _taskdescription, _tasklength, _taskbounty, _degrade, _decayrate, {from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
       if(!err) {
+        // TODO: Change View
         console.log("Receiver has been set: " + result);
       }else{
         console.log(err);
@@ -171,26 +173,61 @@ window.onload = function () {
     var indElm = MarkCompleted[i];
     indElm.onclick = function (e) {
       e.preventDefault();
-      _taskid = indElm.dataset.taskid;
-      _childAddress = indElm.dataset.childaddress;
-      getChildId(_childAddress).then(function(_childid){
-        _childid = MarkCompleted.dataset.childid;
-        CompleteTaskSubmit(_taskid, _childid);
+      var _taskid = indElm.dataset.taskid;
+      var _childAddress = indElm.dataset.childaddress;
+      getChildId(_childAddress).then(function(_childAddress){
+        var _childid = indElm.dataset.childid;
+        CompleteTaskSubmit(_taskid, _childid).then(function(result){
+          // TODO view changes.
+          indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+        });
       });
     }
   }
    
 
   function CompleteTaskSubmit(_taskid, _childid){
-    console.log('sending..', _taskid, _childid);
-    contractInstance.CompleteTask.sendTransaction(_taskid, _childid, {from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
-      if(!err) {
-        console.log("Receiver has been set: " + result);
-      }else{
-        console.log(err);
-      }
+    return new Promise(function (resolve, reject) {
+      console.log('sending..', _taskid, _childid);
+      contractInstance.CompleteTask.sendTransaction(_taskid, _childid, {from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
+        if(!err) {
+          resolve(result);
+        } else{
+          reject(error);
+        }
+      });
     });
   }
+
+  var RejectTask = document.getElementsByClassName('reject-task');
+  for (var i = 0; i < RejectTask.length; i++) {
+    var indElm = RejectTask[i];
+    indElm.onclick = function (e) {
+      e.preventDefault();
+      var _taskid = indElm.dataset.taskid;
+      var _childAddress = indElm.dataset.childaddress;
+      RejectTaskSubmit(_taskid, _childAddress).then(function(result){
+        indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+      });
+    }
+  }
+   
+
+  function RejectTaskSubmit(_taskid, _childAddress){
+    return new Promise(function (resolve, reject) {
+      console.log('sending..', _taskid, _childAddress);
+      contractInstance.RejectReviewedTask.sendTransaction(_taskid, _childAddress, {from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
+        if(!err) {
+          console.log("Receiver has been set: " + result);
+          resolve(result);
+        } else{
+          console.log(err);
+          reject(error);
+        }
+      });
+    });
+  }
+
 
 
   /*******************************

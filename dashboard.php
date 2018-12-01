@@ -110,23 +110,14 @@
   </div>
   <p>This is a list of all the completed tasks from your children that have not been paid out yet.  Please review each task for completeness and then <strong>mark Accept</strong> to approve the payment of the bounty.</p>
   <div class="blocks">
-     <div class="block">
+     <div class="block reviewable-task">
       <div class="icon-container"><span>10 Go</span></div>
       <div class="content">
         Take a shower <strong>under 5 Minutes</strong>
         <div class="dueDate">Month, 20th 2018</div>
       </div>
-      <a class="action-container mark-task-as-completed" href="#markAsCompleted" data-childaddress="" data-taskid=""><i class="fas fa-check-double"></i>  Accept</a>
-      <a class="action-container reject-task warning" href="#markAsCompleted" data-childaddress="" data-taskid=""><i class="fas fa-ban"></i> Reject</a>
-    </div>
-    <div class="block">
-      <div class="icon-container"><span>5 Go</span></div>
-      <div class="content">
-        Pick up your clothes in the hallway.
-        <div class="dueDate">Month, 20th 2018</div>
-      </div>
-      <a class="action-container" href="#markAsCompleted"><i class="fas fa-check-double"></i> Accept</a>
-      <a class="action-container warning" href="#markAsCompleted"><i class="fas fa-ban"></i> Reject</a>
+      <a class="action-container mark-task-as-completed" href="#markAsCompleted" data-childaddress="0x2C79DD08680A6ce9572C767409C7f71A1Fc6D244" data-taskid="1"><i class="fas fa-check-double"></i>  Accept</a>
+      <a class="action-container reject-task warning" href="#markAsCompleted" data-childaddress="0x2C79DD08680A6ce9572C767409C7f71A1Fc6D244" data-taskid="1"><i class="fas fa-ban"></i> Reject</a>
     </div>
   </div>
 
