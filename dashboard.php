@@ -76,17 +76,20 @@
         <div class="icon-container"><i class="fas fa-tasks"></i></div>
         <div class="content">
             <div class="field-group">
-              <input name="task" type="text" placeholder="Task Description" />
+              <input name="task" type="text" id="TaskDescription" placeholder="Task Description" />
             </div>
             <div class="field-group">
-              <input name="endDate" type="date" placeholder="End Date" />
+              <input name="endDate" type="date" id="TaskEndDate" placeholder="End Date" />
             </div>
             <div class="field-group">
-              <input name="bounty" type="text" placeholder="Bounty In GO" />
+              <input name="bounty" type="text" id="TaskBounty" placeholder="Bounty In GO" />
+            </div>
+            <div class="field-group">
+              <input type="checkbox" value="true" id="TaskUseDecay" class="checkbox" /> Use Decay on Bounty?
             </div>
         </div>
       </div>
-      <input type="hidden" name="childId" value="" />
+      <input type="hidden" id="TaskChildAddress" name="childId" value="0x2C79DD08680A6ce9572C767409C7f71A1Fc6D244" />
     </div>
   </form>
   <?php /*
@@ -95,7 +98,7 @@
   </div>
   */ ?>
   <div class="centered-content">
-    <a href="#addChild" class="btn">Save Tasks</a> <a href="#cancelTask" class="btn cancel black cancelTask">Cancel</a>
+    <a href="#addChild" id="AddNewTaskSubmit" class="btn addNewTaskSubmit">Save Tasks</a> <a href="#cancelTask" class="btn cancel black cancelTask">Cancel</a>
   </div>
   </div>
 
@@ -113,8 +116,8 @@
         Take a shower <strong>under 5 Minutes</strong>
         <div class="dueDate">Month, 20th 2018</div>
       </div>
-      <a class="action-container" href="#markAsCompleted"><i class="fas fa-check-double"></i>  Accept</a>
-      <a class="action-container warning" href="#markAsCompleted"><i class="fas fa-ban"></i> Reject</a>
+      <a class="action-container mark-task-as-completed" href="#markAsCompleted" data-childaddress="" data-taskid=""><i class="fas fa-check-double"></i>  Accept</a>
+      <a class="action-container reject-task warning" href="#markAsCompleted" data-childaddress="" data-taskid=""><i class="fas fa-ban"></i> Reject</a>
     </div>
     <div class="block">
       <div class="icon-container"><span>5 Go</span></div>

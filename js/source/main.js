@@ -23,6 +23,7 @@ window.onload = function () {
         dashboard = 'Parent';
         hasChildren = 0;
         checkForChildren().then(function(childrenCount){
+          console.log('children??', childrenCount);
           var result = childrenCount.filter(obj => {
             return obj !== "0x";
           });
@@ -94,7 +95,7 @@ window.onload = function () {
   AddNewChildSubmit.onclick = function (e) {
     e.preventDefault();
     var _add = document.getElementById('NewChildWalletAddress').value;
-    var _nickname = document.getElementById('NewChildNickname').value;
+    var _nickname = '"' + document.getElementById('NewChildNickname').value + '"';
     addNewChild(_add, _nickname);
   }
   function addNewChild(_add, _nickname){
@@ -115,6 +116,33 @@ window.onload = function () {
   onClickDoCallback(addTaskForChild, 'toggle', 'open', function () {
     document.getElementById('NewTask').classList.toggle('active');
   });
+  // ACTION: ADD NEW TASK
+  function SubmitNewTask(_childAddress, _taskdescription, _tasklength, _taskbounty, _degrade, _decayrate){
+    console.log('sending..', _childAddress, _taskdescription, _tasklength, _taskbounty, _degrade, _decayrate);
+    contractInstance.AddTask.sendTransaction(_childAddress, _taskdescription, _tasklength, _taskbounty, _degrade, _decayrate, {from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
+      if(!err) {
+        console.log("Receiver has been set: " + result);
+      }else{
+        console.log(err);
+      }
+    });
+  }
+
+  var AddNewTaskSubmit = document.getElementById('AddNewTaskSubmit');
+  AddNewTaskSubmit.onclick = function (e) {
+    e.preventDefault();
+    console.log('you clicked submit new task');
+    var _childAddress     = document.getElementById('TaskChildAddress').value;
+    var _taskdescription  = '"' + document.getElementById('TaskDescription').value + '"';
+    var _tasklength       = document.getElementById('TaskEndDate').value;
+    _tasklength           = new Date(_tasklength).getTime();
+    var _taskbounty       = document.getElementById('TaskBounty').value;
+    var _degrade          = (document.getElementById('TaskUseDecay').value === true) ? true : false;
+    var _decayrate        = 10;
+
+    SubmitNewTask(_childAddress, _taskdescription, _tasklength, _taskbounty, _degrade, _decayrate);
+  }
+
 
   var cancelTask = document.getElementsByClassName('cancelTask');
   onClickDoCallback(cancelTask, 'remove', 'open', function () {
@@ -135,6 +163,39 @@ window.onload = function () {
     }
   }
 
+  /******************************
+   *  PARENT ACCEPT/DENY FUNCTIONALITY
+   ******************************/
+  var MarkCompleted = document.getElementsByClassName('mark-task-as-completed');
+  for (var i = 0; i < MarkCompleted.length; i++) {
+    var indElm = MarkCompleted[i];
+    indElm.onclick = function (e) {
+      e.preventDefault();
+      _taskid = indElm.dataset.taskid;
+      _childAddress = indElm.dataset.childaddress;
+      getChildId(_childAddress).then(function(_childid){
+        _childid = MarkCompleted.dataset.childid;
+        CompleteTaskSubmit(_taskid, _childid);
+      });
+    }
+  }
+   
+
+  function CompleteTaskSubmit(_taskid, _childid){
+    console.log('sending..', _taskid, _childid);
+    contractInstance.CompleteTask.sendTransaction(_taskid, _childid, {from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
+      if(!err) {
+        console.log("Receiver has been set: " + result);
+      }else{
+        console.log(err);
+      }
+    });
+  }
+
+
+  /*******************************
+   *  UTILITY FUCTION FOR ONCLICKS
+   *******************************/
   function onClickDoCallback(elm, methodType, className, callback){
     for (var i = 0; i < elm.length; i++) {
       var indElm = elm[i];
@@ -152,9 +213,11 @@ window.onload = function () {
         callback();
       }
     };
-
   }
 
+  /******************************
+   *  DISPLAY AND LAYOUT CHANGE FUCTIONS
+   ******************************/
   function displayLayout(layout){
     document.getElementById('' + layout + '').classList.add('active');
     if(layout == 'Parent'){
@@ -181,6 +244,10 @@ window.onload = function () {
     }
   }
 
+
+  /*************************
+   *  WEB3/SOLIDITY HELPER FUNCTIONS
+   *************************/
   function getAccount(){
     if (typeof web3 !== 'undefined') {
       return new Promise(function (resolve, reject) {
@@ -211,7 +278,19 @@ window.onload = function () {
 
   function getChildren(){
     return new Promise(function (resolve, reject) {
-      contractInstance.getAllChildren.call(function (error, result) {
+      contractInstanceRead.getAllChildren.call(function (error, result) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  }
+
+  function getChildId(_childAddress){
+    return new Promise(function (resolve, reject) {
+      contractInstanceRead.getChildByAddress.call(_childAddress, function (error, result) {
         if (error) {
           reject(error);
         } else {
@@ -223,7 +302,7 @@ window.onload = function () {
 
   function checkIfChild(){
     return new Promise(function (resolve, reject) {
-      contractInstance.checkIfChild.call(function (error, result) {
+      contractInstanceRead.checkIfChild.call(function (error, result) {
         if (error) {
           reject(error);
         } else {
@@ -236,7 +315,7 @@ window.onload = function () {
   function getActiveTasks(page){
     var p = (typeof page !== 'undefined' && page > 0) ? page : 1;
     return new Promise(function (resolve, reject) {
-      contractInstance.getActiveTaskIDs.call(p, function (error, result) {
+      contractInstanceRead.getActiveTaskIDs.call(p, function (error, result) {
         if (error) {
           reject(error);
         } else {
@@ -248,7 +327,7 @@ window.onload = function () {
 
   function checkForChildren(){
     return new Promise(function (resolve, reject) {
-      contractInstance.getAllChildren.call(function (error, result) {
+      contractInstanceRead.getAllChildren.call(function (error, result) {
         if (error) {
           reject(error);
         } else {
@@ -261,7 +340,7 @@ window.onload = function () {
   function checkForTaskCreated(){
     if(account){
       return new Promise(function (resolve, reject) {
-        contractInstance.TaskTotalCount.call(account, function (error, result) {
+        contractInstanceRead.TaskTotalCount.call(account, function (error, result) {
           if (error) {
             reject(error);
           } else {

@@ -10,5 +10,10 @@
     width: 100%;
     font-family: $font-bold;
     font-size: 1rem;
+    &.checkbox {
+      display: inline-flex;
+      width: auto;
+      margin-right: 1rem;
+    }
   }
 }
