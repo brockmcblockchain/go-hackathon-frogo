@@ -22,6 +22,7 @@ window.onload = function () {
       console.log('is Child?', isChild);
       if(isChild === false){
         dashboard = 'Parent';
+        hasChildren = 1;
         getChildren().then(function(children){
           var childrenAddresses = children[1];
           var childrenNames     = children[0];
@@ -38,127 +39,12 @@ window.onload = function () {
           }
           checkForTaskCreated().then(function(tasks){
             hasAddedTasks = tasks;
+            setUpTasks(hasChildren);
             displayLayout(dashboard);
           });
         });
       }
     });
-
-    // Reviewable Task Display
-    if(hasChildren === false && isChild === false){
-      getReviewTasks().then(function(data){
-        var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
-        if(descriptions.length > 0){
-          // make tasks
-          for(i = 0; i < descriptions.length; i++){
-            if(descriptions[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000'){
-              var taskTemplate = document.getElementsByClassName("reviewable-task");
-              if(taskTemplate.length){
-                var cln = taskTemplate[0].cloneNode(true);
-                // Populate Data
-                var ts = new Date(endDates[i]);
-                // toLocaleDateString
-                cln.getElementsByClassName('icon-container')[0].innerHTML = '<span>' + bounties[i] + ' GO</span>';
-                var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
-                cln.getElementsByClassName('content')[0].innerHTML = content;
-
-                cln.getElementsByClassName('mark-task-as-completed')[0].dataset.taskid = taskIds[i];
-                cln.getElementsByClassName('reject-task')[0].dataset.taskid = taskIds[i];
-
-                // HANDLE -- Reject Button
-                cln.getElementsByClassName('reject-task')[0].onclick = function(e){
-                  e.preventDefault();
-                  var _taskid = e.target.attributes[2].nodeValue;
-                  RejectTaskSubmit(_taskid).then(function(result){
-                    indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
-                  });
-                }
-
-                // HANDLE -- Completed Button
-                cln.getElementsByClassName('mark-task-as-completed')[0].onclick = function(e){
-                  e.preventDefault();
-                  var _taskid = e.target.attributes[2].nodeValue;
-                  CompleteTaskSubmit(_taskid).then(function(result){
-                    indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
-                  });
-                }
-
-                // Add new task to the task container.
-                cln.classList.add('active');
-                document.getElementById("ReviewAbleTaskContainer").appendChild(cln);
-              }
-            }
-          }
-        } else {
-          console.log('no tasks for review.');
-        }
-      });
-      getParentsActiveTasks().then(function(data){
-        var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
-        if(descriptions.length > 0){
-          // make tasks
-          for(i = 0; i < descriptions.length; i++){
-            if(descriptions[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000'){
-              var taskTemplate = document.getElementsByClassName('parent-active-tasks')[0];
-              var cln = taskTemplate.cloneNode(true);
-              // Populate Data
-              cln.getElementsByClassName('task-bounty-value')[0].innerHTML = bounties[i] + ' GO';
-              cln.getElementsByClassName('task-description-value')[0].innerHTML = web3.toAscii(descriptions[i]);
-              // Add new task to the task container.
-              cln.classList.add('active');
-              document.getElementById("ParentActiveTasksContainer").appendChild(cln);
-            }
-          }
-        } else {
-          console.log('no tasks for review.');
-        }
-      });
-    } else {
-      console.log('hey kids..');
-      // Child Display List
-      getActiveTasks().then(function(data){
-        var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
-        if(descriptions.length > 0){
-          // make tasks
-          for(i = 0; i < descriptions.length; i++){
-            if(descriptions[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000'){
-              var taskTemplate = document.getElementsByClassName("active-tasks");
-              if(taskTemplate.length){
-                var cln = taskTemplate[0].cloneNode(true);
-                // Populate Data
-                var ts = new Date(endDates[i]);
-                // toLocaleDateString
-                cln.getElementsByClassName('icon-container')[0].innerHTML = '<span>' + bounties[i] + ' GO</span>';
-                var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
-                cln.getElementsByClassName('content')[0].innerHTML = content;
-
-                cln.getElementsByClassName('mark-task-for-review')[0].dataset.taskid = taskIds[i];
-                cln.getElementsByClassName('mark-task-for-review')[0].dataset.childaddress = assignees[i];
-
-                cln.onclick = function(e){
-                  e.preventDefault();
-                  var _taskid = e.target.attributes[3].nodeValue;
-
-                  ReviewTaskSubmit(_taskid).then(function(result){
-                    console.log('marked for review..', result);
-                    indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
-                  });
-
-                }
-
-                // Add new task to the task container.
-                cln.classList.add('active');
-                document.getElementById("ChildTaskContainer").appendChild(cln);
-              }
-            }
-          }
-          displayLayout(dashboard);
-        } else {
-          console.log('no tasks for review.');
-        }
-      });
-    }
-
   } catch (err) {
     console.log("error loading web3.", err);
   }
@@ -609,22 +495,139 @@ window.onload = function () {
   }
   // Wish i had found this sooner.
   function waitForReceipt(hash, cb) {
-  web3.eth.getTransactionReceipt(hash, function (err, receipt) {
-    if (err) {
-      error(err);
-    }
-
-    if (receipt !== null) {
-      // Transaction went through
-      if (cb) {
-        cb(receipt);
+    web3.eth.getTransactionReceipt(hash, function (err, receipt) {
+      if (err) {
+        error(err);
       }
+
+      if (receipt !== null) {
+        // Transaction went through
+        if (cb) {
+          cb(receipt);
+        }
+      } else {
+        // Try again in 1 second
+        window.setTimeout(function () {
+          waitForReceipt(hash, cb);
+        }, 1000);
+      }
+    });
+  }
+
+  function setUpTasks(hasChildren){
+    console.log('has children: ', hasChildren);
+    if (hasChildren > 0) {
+      getReviewTasks().then(function (data) {
+        console.log('your review tasks', data);
+        var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
+        if (descriptions.length > 0) {
+          // make tasks
+          for (i = 0; i < descriptions.length; i++) {
+            if (descriptions[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000') {
+              var taskTemplate = document.getElementsByClassName("reviewable-task");
+              if (taskTemplate.length) {
+                var cln = taskTemplate[0].cloneNode(true);
+                // Populate Data
+                var ts = new Date(endDates[i]);
+                // toLocaleDateString
+                cln.getElementsByClassName('icon-container')[0].innerHTML = '<span>' + bounties[i] + ' GO</span>';
+                var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
+                cln.getElementsByClassName('content')[0].innerHTML = content;
+
+                cln.getElementsByClassName('mark-task-as-completed')[0].dataset.taskid = taskIds[i];
+                cln.getElementsByClassName('reject-task')[0].dataset.taskid = taskIds[i];
+
+                // HANDLE -- Reject Button
+                cln.getElementsByClassName('reject-task')[0].onclick = function (e) {
+                  e.preventDefault();
+                  var _taskid = e.target.attributes[2].nodeValue;
+                  RejectTaskSubmit(_taskid).then(function (result) {
+                    indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+                  });
+                }
+
+                // HANDLE -- Completed Button
+                cln.getElementsByClassName('mark-task-as-completed')[0].onclick = function (e) {
+                  e.preventDefault();
+                  var _taskid = e.target.attributes[2].nodeValue;
+                  CompleteTaskSubmit(_taskid).then(function (result) {
+                    indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+                  });
+                }
+
+                // Add new task to the task container.
+                cln.classList.add('active');
+                document.getElementById("ReviewAbleTaskContainer").appendChild(cln);
+              }
+            }
+          }
+        } else {
+          console.log('no tasks for review.');
+        }
+      });
+      getParentsActiveTasks().then(function (data) {
+        var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
+        if (descriptions.length > 0) {
+          // make tasks
+          for (i = 0; i < descriptions.length; i++) {
+            if (descriptions[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000') {
+              var taskTemplate = document.getElementsByClassName('parent-active-tasks')[0];
+              var cln = taskTemplate.cloneNode(true);
+              // Populate Data
+              cln.getElementsByClassName('task-bounty-value')[0].innerHTML = bounties[i] + ' GO';
+              cln.getElementsByClassName('task-description-value')[0].innerHTML = web3.toAscii(descriptions[i]);
+              // Add new task to the task container.
+              cln.classList.add('active');
+              document.getElementById("ParentActiveTasksContainer").appendChild(cln);
+            }
+          }
+        } else {
+          console.log('no tasks for review.');
+        }
+      });
     } else {
-      // Try again in 1 second
-      window.setTimeout(function () {
-        waitForReceipt(hash, cb);
-      }, 1000);
+      // Child Display List
+      getActiveTasks().then(function (data) {
+        var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
+        if (descriptions.length > 0) {
+          // make tasks
+          for (i = 0; i < descriptions.length; i++) {
+            if (descriptions[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000') {
+              var taskTemplate = document.getElementsByClassName("active-tasks");
+              if (taskTemplate.length) {
+                var cln = taskTemplate[0].cloneNode(true);
+                // Populate Data
+                var ts = new Date(endDates[i]);
+                // toLocaleDateString
+                cln.getElementsByClassName('icon-container')[0].innerHTML = '<span>' + bounties[i] + ' GO</span>';
+                var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
+                cln.getElementsByClassName('content')[0].innerHTML = content;
+
+                cln.getElementsByClassName('mark-task-for-review')[0].dataset.taskid = taskIds[i];
+                cln.getElementsByClassName('mark-task-for-review')[0].dataset.childaddress = assignees[i];
+
+                cln.onclick = function (e) {
+                  e.preventDefault();
+                  var _taskid = e.target.attributes[3].nodeValue;
+
+                  ReviewTaskSubmit(_taskid).then(function (result) {
+                    console.log('marked for review..', result);
+                    indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+                  });
+
+                }
+
+                // Add new task to the task container.
+                cln.classList.add('active');
+                document.getElementById("ChildTaskContainer").appendChild(cln);
+              }
+            }
+          }
+          displayLayout(dashboard);
+        } else {
+          console.log('no tasks for review.');
+        }
+      });
     }
-  });
-}
+  }
 };
