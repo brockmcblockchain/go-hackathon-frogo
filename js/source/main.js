@@ -18,24 +18,39 @@ window.onload = function () {
     var hasChildren          = 0;
     var hasAddedTasks        = 0;
 
+
+    web3.eth.getAccounts(function (err, accounts) {
+      if (err != null) {
+        console.error("An error occurred: " + err);
+      } else if (accounts.length == 0) {
+        showNoAccount();
+      } else {
+       hideNoAccount();
+      }
+    });
+
     checkIfChild().then(function(isChild){
       console.log('is Child?', isChild);
       if(isChild === false){
         dashboard = 'Parent';
-        hasChildren = 1;
         getChildren().then(function(children){
           var childrenAddresses = children[1];
           var childrenNames     = children[0];
+
           for(var kids = 0; kids < childrenNames.length; kids++){
             if(childrenAddresses[kids] == '0x0000000000000000000000000000000000000000'){
               childrenAddresses.splice(kids, 1);
               childrenNames.splice(kids, 1);
             }
           }
-          children = [childrenNames, childrenAddresses];
+          children          = [childrenNames, childrenAddresses];
+          childrenAddresses = children[1];
+          childrenNames     = children[0];
           if(childrenNames.length > 0){
             populateChildrenList(children);
             hasChildren = 1;
+          } else {
+            hasChildren = 0;
           }
           checkForTaskCreated().then(function(tasks){
             hasAddedTasks = tasks;
