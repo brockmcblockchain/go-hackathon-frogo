@@ -9,7 +9,7 @@ window.onload = function () {
 
     var VotingContract       = web3.eth.contract(abi);
     var VotingContractRead   = web3read.eth.contract(abi);
-    var contractAddress      = '0x5c476D44534c7e39C2aFD9bc5ac4cF0861ED8fC9';
+    var contractAddress      = '0x64723C49e97297fA2B23Abc6Ddc6a4fC6684BA73';
 
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)
@@ -20,10 +20,12 @@ window.onload = function () {
 
     
     checkIfChild().then(function(isChild){
+      console.log('isChild?', isChild);
       if(isChild == false){
         dashboard = 'Parent';
         hasChildren = 0;
         getChildren().then(function(children){
+          console.log('children', children);
           var childrenAddresses = children[1];
           var childrenNames     = children[0];
           for(var kids = 0; kids < childrenNames.length; kids++){
