@@ -37,7 +37,7 @@
 
     <footer>
       <div class="copyright">All Rights Reserved &copy; <?php echo date('Y'); ?></div>
-      <div class="social"><a href="http://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></div>
+      <div class="social"><a href="https://twitter.com/FroGO73511141" target="_blank"><i class="fab fa-twitter"></i></a></div>
     </footer>
   </div>
 </body>

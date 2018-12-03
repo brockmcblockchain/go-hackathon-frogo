@@ -7586,6 +7586,8 @@ h5 {
 .centered-content {
   display: flex;
   justify-content: center; }
+  .centered-content.bottom-margin {
+    margin-bottom: 2rem; }
   .centered-content .btn {
     margin-left: 1rem; }
     .centered-content .btn:first-of-type {
@@ -7711,10 +7713,12 @@ h5 {
       width: 100%; } }
 
 .dashboard,
-.quick-start-guide {
+.quick-start-guide,
+.no-account {
   display: none; }
   .dashboard.active,
-  .quick-start-guide.active {
+  .quick-start-guide.active,
+  .no-account.active {
     display: block; }
 
 .quick-start-step {

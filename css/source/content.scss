@@ -171,6 +171,9 @@ h5 {
 .centered-content {
   display: flex;
   justify-content: center;
+  &.bottom-margin {
+    margin-bottom: 2rem;
+  }
   .btn {
     margin-left: 1rem;
     &:first-of-type {

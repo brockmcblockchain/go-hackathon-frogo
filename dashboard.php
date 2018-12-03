@@ -1,5 +1,35 @@
 <section class="section">
 
+<div id="NoWallet" class="centered no-account">
+  <h2>Well this is embarrassing! We can’t create or locate your account right now.</h2>
+  <p>This could be caused by a few reasons, if you follow the questions and steps below, we will soon have you up and running.
+  First question – Is this your first attempt at creating your account? If so, you need to create a wallet which automatically enable your account. There are two ways of creating an account depending on whether you are accessing Fro-GO via a mobile or desktop.</p>
+  <div class="centered-content">
+    <h5>Option 1 – Accessing via a desktop</h5>
+  </div>
+  <div class="centered-content bottom-margin">
+    <img src="/images/img-metamask.jpg" />
+  </div>
+
+  <p>Please go to <a href="https://metamask.io/" target="_blank">https://metamask.io/</a> here you can create a crypto wallet and use it through a Chrome Extension, their “Brave Browser” or Chrome Firefox Opera. Once you have created the wallet come back to this page and your account will instantly be available. For more information on metamask you can <a href="https://www.youtube.com/watch?v=6Gf_kRE4MJU" target="_blank">watch their Metamask introduction video</a> </p>
+
+  <div class="centered-content">
+    <h5>Option 2 – Accessing via a mobile</h5>
+  </div>
+  <div class="centered-content bottom-margin">
+    <img src="/images/img-trustwallet.jpg" />
+  </div>
+  
+  <p>Please go to <a href="https://trustwallet.com/" target="_blank">https://trustwallet.com/</a> and download the app for relevant for your device. You can then follow the instructions and have a wallet created quickly and easily. Upon completion you will be able to see the DApps icon at the bottom of the wallet screen, simply click this and select Fro-GO from the list. You will instantly be logged in, easy! For more information on Trust wallet you can watch <a href="https://www.youtube.com/watch?v=712BGhU_4oU" target="_blank">the Trustwallet introduction video</a>. </p>
+
+  <p>Second question – So this isn’t your first visit to us and suddenly its all stopped working? If that is the case the first step is to ensure you are connected to your wallet. Make sure you can view your wallet balance and have no issues with its use. If you do then please work through the help guides for the relevant wallet and try again.</p>
+  <div class="centered-content bottom-margin">
+    <a href="https://metamask.zendesk.com/hc/en-us" class="btn" target="_blank">Metamask Support pages</a>
+    <a href="https://help.trustwallet.com/hc/en-us" class="btn" target="_blank">Trust Wallet Support pages</a>
+  </div>
+  <p>Third question – Still here and still no joy? This is getting even more embarrassing! We want you to have a seamless and easy experience with Fro-GO so we apologise things are not going to plan. Please can you email us at Support@Frogotheworld.com with your wallet address and brief description on what you are experiencing (including which wallet you use) and we will get right on it to get you back up and running. We may need to chat with you so please keep an eye on your emails including your spam mail in case your mailbox doesn’t realise how awesome we are!</p>
+</div>
+
 <div id="Parent" class="dashboard parent-dashboard <?php echo (array_key_exists('debug', $_REQUEST)) ? ' forced-active ' : ''; ?>">
   <div id="QuickStartGuide" class="quick-start-guide">
     <h3>Quick Start Guide</h3>
