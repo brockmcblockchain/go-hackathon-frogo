@@ -256,6 +256,9 @@ window.onload = function () {
       CompleteTaskSubmit(_taskid).then(function(result){
         // TODO view changes.
         indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+        setTimeout(() => {
+          location.reload();
+        }, 5500);
       });
     }
   }
@@ -269,6 +272,9 @@ window.onload = function () {
       var _taskid = indElm.dataset.taskid;
       ReviewTaskSubmit(_taskid).then(function(result){
         indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+        setTimeout(() => {
+          location.reload();
+        }, 5500);
       });
 
     }
@@ -309,6 +315,9 @@ window.onload = function () {
       var _childAddress = indElm.dataset.childaddress;
       RejectTaskSubmit(_taskid, _childAddress).then(function(result){
         indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+        setTimeout(() => {
+          location.reload();
+        }, 5500);
       });
     }
   }
@@ -621,6 +630,9 @@ window.onload = function () {
                   var _taskid = e.target.attributes[2].nodeValue;
                   RejectTaskSubmit(_taskid).then(function (result) {
                     indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+                    setTimeout(() => {
+                      location.reload();
+                    }, 7500);
                   });
                 }
 
@@ -630,6 +642,9 @@ window.onload = function () {
                   var _taskid = e.target.attributes[2].nodeValue;
                   CompleteTaskSubmit(_taskid).then(function (result) {
                     indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+                    setTimeout(() => {
+                      location.reload();
+                    }, 5500);
                   });
                 }
 
@@ -697,6 +712,9 @@ window.onload = function () {
                   ReviewTaskSubmit(_taskid).then(function (result) {
                     console.log('marked for review..', result);
                     indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
+                    setTimeout(() => {
+                      location.reload();
+                    }, 5500);
                   });
 
                 }

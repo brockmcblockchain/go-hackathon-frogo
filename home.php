@@ -80,7 +80,6 @@
 <p>Now your account is set up you can link to your child’s wallet and then assign tasks with incentives that you decide upon. Your child can then complete the task and then once completed they can request your acceptance and you confirm – That’s it!</p>
 <p>There are many further options available in the tool such as the enabling of incentive erosion to encourage rapid completion of tasks, global tasks that allows multiple task assignees to work together to complete.</p>
 <p>Incentives when received can be used for many things. They can be simply held as an investment in the GoChain network, they can be used to purchase items at partner stores <em>(coming soon – Fro-GO discounted store)</em> they can be used at one of the many other applications that use Go or they can be exchanged back to local currencies.</p>
-<p><strong>Full user instructions can be found [ here ]</strong></p>
 </p>
 </section>
 <section class="section dark">
