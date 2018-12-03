@@ -9,7 +9,7 @@ window.onload = function () {
 
     var VotingContract       = web3.eth.contract(abi);
     var VotingContractRead   = web3read.eth.contract(abi);
-    var contractAddress = '0xf6dff18aD009bf814d98E3cF9c6189F9353AeEf2';
+    var contractAddress = '0x0dba448fAa07cCc1A0079D4767C8073762c74E49';
 
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)
@@ -43,6 +43,8 @@ window.onload = function () {
             displayLayout(dashboard);
           });
         });
+      } else {
+        setUpTasks(hasChildren);
       }
     });
   } catch (err) {
