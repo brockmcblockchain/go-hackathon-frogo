@@ -601,10 +601,11 @@ window.onload = function () {
               if (taskTemplate.length) {
                 var cln = taskTemplate[0].cloneNode(true);
                 // Populate Data
-                var ts = new Date(endDates[i]);
+                //var ts = new Date(endDates[i]);
                 // toLocaleDateString
                 cln.getElementsByClassName('icon-container')[0].innerHTML = '<span>' + bounties[i] + ' GO</span>';
-                var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
+                //var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
+                var content = web3.toAscii(descriptions[i]) + '';
                 cln.getElementsByClassName('content')[0].innerHTML = content;
 
                 cln.getElementsByClassName('mark-task-as-completed')[0].dataset.taskid = taskIds[i];
@@ -675,10 +676,11 @@ window.onload = function () {
               if (taskTemplate.length) {
                 var cln = taskTemplate[0].cloneNode(true);
                 // Populate Data
-                var ts = new Date(endDates[i]);
+                //var ts = new Date(endDates[i]);
                 // toLocaleDateString
                 cln.getElementsByClassName('icon-container')[0].innerHTML = '<span>' + bounties[i] + ' GO</span>';
-                var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
+                //var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
+                var content = web3.toAscii(descriptions[i]) + '';
                 cln.getElementsByClassName('content')[0].innerHTML = content;
 
                 cln.getElementsByClassName('mark-task-for-review')[0].dataset.taskid = taskIds[i];
