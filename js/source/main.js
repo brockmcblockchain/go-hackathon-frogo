@@ -19,9 +19,9 @@ window.onload = function () {
     var hasAddedTasks        = 0;
 
     checkIfChild().then(function(isChild){
-      if(isChild == false){
+      console.log('is Child?', isChild);
+      if(isChild === false){
         dashboard = 'Parent';
-        hasChildren = 0;
         getChildren().then(function(children){
           var childrenAddresses = children[1];
           var childrenNames     = children[0];
@@ -45,7 +45,7 @@ window.onload = function () {
     });
 
     // Reviewable Task Display
-    if(hasChildren == false ){
+    if(hasChildren === false && isChild === false){
       getReviewTasks().then(function(data){
         var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
         if(descriptions.length > 0){
@@ -114,6 +114,7 @@ window.onload = function () {
         }
       });
     } else {
+      console.log('hey kids..');
       // Child Display List
       getActiveTasks().then(function(data){
         var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
@@ -151,6 +152,7 @@ window.onload = function () {
               }
             }
           }
+          displayLayout(dashboard);
         } else {
           console.log('no tasks for review.');
         }
@@ -508,7 +510,6 @@ window.onload = function () {
 
   function getActiveTasks(){
     var _child = web3.eth.accounts[0];
-    _child = '0x58A31d59965C7E06f7359DC034022dF66a290402';
     return new Promise(function (resolve, reject) {
       contractInstanceRead.getActiveTasksByChildAddress.call(_child, function (error, result) {
         if (error) {
