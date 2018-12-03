@@ -40,7 +40,7 @@ window.onload = function () {
     });
     
     // Reviewable Task Display
-    if(hasChildren == false && false){
+    if(hasChildren == false){
       getReviewTasks().then(function(data){
         var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
         if(descriptions.length > 0){
@@ -89,15 +89,12 @@ window.onload = function () {
         }
       });
     } else {
-      console.log('you are a childs.');
       // Child Display List
       getActiveTasks().then(function(data){
         var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
         if(descriptions.length > 0){
           // make tasks
-          console.log('these are your active tasks', data);
           for(i = 0; i < descriptions.length; i++){
-            console.log(descriptions[i], typeof descriptions[i]);
             if(descriptions[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000'){
               var taskTemplate = document.getElementsByClassName("active-tasks");
               if(taskTemplate.length){
