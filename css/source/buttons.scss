@@ -103,3 +103,12 @@ a.btn-link i {
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .dark .btn.hot {
+    margin-left: 0;
+  }
+  .dark .white.btn {
+    margin-right: 0;
+  }
+}

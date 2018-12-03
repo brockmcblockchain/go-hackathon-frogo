@@ -9,7 +9,7 @@ window.onload = function () {
 
     var VotingContract       = web3.eth.contract(abi);
     var VotingContractRead   = web3read.eth.contract(abi);
-    var contractAddress      = '0x1FE990F96b04688aD41934c753a297A458689166';
+    var contractAddress = '0xf6dff18aD009bf814d98E3cF9c6189F9353AeEf2';
 
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)
@@ -17,17 +17,6 @@ window.onload = function () {
     var dashboard            = 'Child';
     var hasChildren          = 0;
     var hasAddedTasks        = 0;
-
-
-    web3.eth.getAccounts(function (err, accounts) {
-      if (err != null) {
-        console.error("An error occurred: " + err);
-      } else if (accounts.length == 0){
-        showNoAccount();
-      } else {
-        hideNoAccount();
-      }
-    });
 
     checkIfChild().then(function(isChild){
       if(isChild == false){
@@ -56,7 +45,7 @@ window.onload = function () {
     });
 
     // Reviewable Task Display
-    if(hasChildren == false){
+    if(hasChildren == false ){
       getReviewTasks().then(function(data){
         var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
         if(descriptions.length > 0){
@@ -519,6 +508,7 @@ window.onload = function () {
 
   function getActiveTasks(){
     var _child = web3.eth.accounts[0];
+    _child = '0x58A31d59965C7E06f7359DC034022dF66a290402';
     return new Promise(function (resolve, reject) {
       contractInstanceRead.getActiveTasksByChildAddress.call(_child, function (error, result) {
         if (error) {

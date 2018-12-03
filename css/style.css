@@ -7893,3 +7893,9 @@ a.btn-link i {
     .dark .btn.hot:hover {
       background: #2ea586;
       transition: all 0.25s ease-in-out; }
+
+@media screen and (max-width: 600px) {
+  .dark .btn.hot {
+    margin-left: 0; }
+  .dark .white.btn {
+    margin-right: 0; } }
