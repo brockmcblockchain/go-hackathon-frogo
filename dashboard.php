@@ -89,7 +89,7 @@
             </div>
         </div>
       </div>
-      <input type="hidden" id="TaskChildAddress" name="childId" value="0x2C79DD08680A6ce9572C767409C7f71A1Fc6D244" />
+      <input type="hidden" id="TaskChildAddress" name="childId" value="" />
     </div>
   </form>
   <?php /*
@@ -113,27 +113,26 @@
      <div class="block reviewable-task">
       <div class="icon-container"><span>10 Go</span></div>
       <div class="content">
-        Take a shower <strong>under 5 Minutes</strong>
         <div class="dueDate">Month, 20th 2018</div>
       </div>
-      <a class="action-container mark-task-as-completed" href="#markAsCompleted" data-childaddress="0x2C79DD08680A6ce9572C767409C7f71A1Fc6D244" data-taskid="1"><i class="fas fa-check-double"></i>  Accept</a>
-      <a class="action-container reject-task warning" href="#markAsCompleted" data-childaddress="0x2C79DD08680A6ce9572C767409C7f71A1Fc6D244" data-taskid="1"><i class="fas fa-ban"></i> Reject</a>
+      <a class="action-container mark-task-as-completed" href="#markAsCompleted" data-taskid=""><i class="fas fa-check-double"></i>  Accept</a>
+      <a class="action-container reject-task warning" href="#rejectTaskReview" data-taskid=""><i class="fas fa-ban"></i> Reject</a>
     </div>
   </div>
-
-  <div id="Child" class="dashboard child-dashboard">
-    <h3>Child Dashboard</h3>
-    <p>Below you will find a list of assigned an available tasks for you to work.  Once you finish each job you can submit it for review to the Task Creator.  Once approved you will be instantly credited with the bounty.  Keep in mind the bounties decrease the more time passes from when the task was created.</p>
-    <div class="blocks">
-      <div class="block active-tasks">
-        <div class="icon-container"><span class="task-bounty-value">10 Go</span></div>
-        <div class="content task-description-value">
-          Take a shower <strong>under 5 Minutes</strong>
-          <div class="dueDate task-end-date">Month, 20th 2018</div>
-        </div>
-        <a class="action-container MarkTaskForReview" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
+</div>
+<div id="Child" class="dashboard child-dashboard">
+  <h3>Child Dashboard</h3>
+  <p>Below you will find a list of assigned an available tasks for you to work.  Once you finish each job you can submit it for review to the Task Creator.  Once approved you will be instantly credited with the bounty.  Keep in mind the bounties decrease the more time passes from when the task was created.</p>
+  <div class="blocks" id="ChildTaskContainer">
+    <div class="block active-tasks">
+      <div class="icon-container"><span class="task-bounty-value">10 Go</span></div>
+      <div class="content task-description-value">
+        Take a shower <strong>under 5 Minutes</strong>
+        <div class="dueDate task-end-date">Month, 20th 2018</div>
       </div>
+      <a class="action-container mark-task-for-review MarkTaskForReview" href="#markAsCompleted" data-childaddress="" data-taskid=""><i class="fas fa-check"></i> Mark Complete!</a>
     </div>
   </div>
+</div>
 
 </section>
