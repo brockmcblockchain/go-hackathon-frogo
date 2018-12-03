@@ -11,6 +11,15 @@
   }
 }
 
+.error-container {
+  color: red;
+  padding-bottom: 0.25rem;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
 .home-link {
   justify-content: space-around;
   align-items: center;

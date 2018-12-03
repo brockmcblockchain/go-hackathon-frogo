@@ -85,6 +85,7 @@
         <div class="icon-container"><i class="fas fa-wallet"></i></div>
         <div class="content">
           <form id="AddChild">
+            <div id="NewChildErrors" class="error-container"></div>
             <div class="field-group">
               <input id="NewChildWalletAddress" name="wallet" type="text" placeholder="GO Wallet Address" />
             </div>

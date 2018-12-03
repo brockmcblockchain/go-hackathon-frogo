@@ -4,25 +4,28 @@ window.onload = function () {
   try {
     var myWeb3 = new Web3(web3.currentProvider || new Web3.providers.HttpProvider("https://testnet-rpc.gochain.io:443"));
     var web3read = new Web3(new Web3.providers.HttpProvider("https://testnet-rpc.gochain.io:443"));
-
-    var abi = JSON.parse('[{"constant":false,"inputs":[{"name":"_creator","type":"address"}],"name":"getActiveTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_parent","type":"address"}],"name":"checkIfChild","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doCompleteTask","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_child","type":"address"}],"name":"addChild","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_creator","type":"address"}],"name":"hasParentMadeTask","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"getAllTasks","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Children","outputs":[{"name":"name","type":"bytes32"},{"name":"parentAddress","type":"address"},{"name":"childAddress","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doChangeTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_creator","type":"address"}],"name":"getReviewTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doRejectTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_value","type":"bytes32"},{"name":"_assignee","type":"address"},{"name":"_startDate","type":"uint128"},{"name":"_endDate","type":"uint128"},{"name":"_bounty","type":"uint128"}],"name":"addTask","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_parent","type":"address"}],"name":"getParentsChildren","outputs":[{"name":"","type":"bytes32[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Tasks","outputs":[{"name":"value","type":"bytes32"},{"name":"creator","type":"address"},{"name":"assignee","type":"address"},{"name":"bounty","type":"uint128"},{"name":"startDate","type":"uint128"},{"name":"endDate","type":"uint128"},{"name":"useDecay","type":"bool"},{"name":"active","type":"bool"},{"name":"review","type":"bool"},{"name":"paid","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_assignee","type":"address"}],"name":"getActiveTasksByChildAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]');
+    var abi = JSON.parse('[{"constant":false,"inputs":[{"name":"_creator","type":"address"}],"name":"getActiveTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_parent","type":"address"}],"name":"checkIfChild","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doCompleteTask","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_child","type":"address"}],"name":"addChild","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_creator","type":"address"}],"name":"hasParentMadeTask","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_child","type":"address"}],"name":"getChildNameByAddress","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Children","outputs":[{"name":"name","type":"bytes32"},{"name":"parentAddress","type":"address"},{"name":"childAddress","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doChangeTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_creator","type":"address"}],"name":"getReviewTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doRejectTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_value","type":"bytes32"},{"name":"_assignee","type":"address"},{"name":"_startDate","type":"uint128"},{"name":"_endDate","type":"uint128"},{"name":"_bounty","type":"uint128"}],"name":"addTask","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_parent","type":"address"}],"name":"getParentsChildren","outputs":[{"name":"","type":"bytes32[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Tasks","outputs":[{"name":"value","type":"bytes32"},{"name":"creator","type":"address"},{"name":"assignee","type":"address"},{"name":"bounty","type":"uint128"},{"name":"startDate","type":"uint128"},{"name":"endDate","type":"uint128"},{"name":"useDecay","type":"bool"},{"name":"active","type":"bool"},{"name":"review","type":"bool"},{"name":"paid","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_assignee","type":"address"}],"name":"getActiveTasksByChildAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]');
+    //var abi = JSON.parse('[{"constant":false,"inputs":[{"name":"_creator","type":"address"}],"name":"getActiveTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_parent","type":"address"}],"name":"checkIfChild","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doCompleteTask","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_child","type":"address"}],"name":"addChild","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_creator","type":"address"}],"name":"hasParentMadeTask","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"getAllTasks","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Children","outputs":[{"name":"name","type":"bytes32"},{"name":"parentAddress","type":"address"},{"name":"childAddress","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doChangeTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_creator","type":"address"}],"name":"getReviewTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doRejectTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_value","type":"bytes32"},{"name":"_assignee","type":"address"},{"name":"_startDate","type":"uint128"},{"name":"_endDate","type":"uint128"},{"name":"_bounty","type":"uint128"}],"name":"addTask","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_parent","type":"address"}],"name":"getParentsChildren","outputs":[{"name":"","type":"bytes32[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Tasks","outputs":[{"name":"value","type":"bytes32"},{"name":"creator","type":"address"},{"name":"assignee","type":"address"},{"name":"bounty","type":"uint128"},{"name":"startDate","type":"uint128"},{"name":"endDate","type":"uint128"},{"name":"useDecay","type":"bool"},{"name":"active","type":"bool"},{"name":"review","type":"bool"},{"name":"paid","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_assignee","type":"address"}],"name":"getActiveTasksByChildAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]');
 
     var VotingContract       = web3.eth.contract(abi);
     var VotingContractRead   = web3read.eth.contract(abi);
-    var contractAddress = '0x0dba448fAa07cCc1A0079D4767C8073762c74E49';
+    //var contractAddress = '0x0dba448fAa07cCc1A0079D4767C8073762c74E49';
+    var contractAddress = '0x10b6e272E4A8CD21303e390BbaDFC9a519bA1EBd';
 
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)
 
-    var dashboard            = 'Child';
-    var hasChildren          = 0;
-    var hasAddedTasks        = 0;
+    var dashboard     = 'Child';
+    var hasChildren   = 0;
+    var hasAddedTasks = 0;
+    var yourChildren  = [];
 
 
     web3.eth.getAccounts(function (err, accounts) {
       if (err != null) {
         console.error("An error occurred: " + err);
       } else if (accounts.length == 0) {
+        hideLoading();
         showNoAccount();
       } else {
        hideNoAccount();
@@ -30,24 +33,21 @@ window.onload = function () {
     });
 
     checkIfChild().then(function(isChild){
-      console.log('is Child?', isChild);
       if(isChild === false){
         dashboard = 'Parent';
         getChildren().then(function(children){
           var childrenAddresses = children[1];
           var childrenNames     = children[0];
-
           for(var kids = 0; kids < childrenNames.length; kids++){
-            if(childrenAddresses[kids] === '0x0000000000000000000000000000000000000000'
-              || childrenAddresses[kids] === '0x0000000000000000000000000000000000000000000000000000000000000000') {
+            if (childrenAddresses[kids].includes('0x0000000000000000000000000000000000000000') == true) {
               childrenAddresses.splice(kids, 1);
               childrenNames.splice(kids, 1);
             }
           }
           children          = [childrenNames, childrenAddresses];
+          yourChildren      = children;
           childrenAddresses = children[1];
           childrenNames     = children[0];
-          console.log('children', children, childrenAddresses);
           if(childrenNames.length > 0){
             populateChildrenList(children);
             hasChildren = 1;
@@ -78,7 +78,10 @@ window.onload = function () {
     getAccount().then(function (result) {
       if (typeof result === 'undefined') {
         console.log('no wallet.');
+        hideLoading();
+        showNoAccount();
       } else {
+        hideNoAccount();
         account = result[0];
         getBalance(account).then(function (balance) {
           var trueBalance = '<i class="fas fa-usd-circle"></i> ' + web3.fromWei(balance, "ether").toFixed(2) + ' GO';
@@ -114,9 +117,43 @@ window.onload = function () {
   var AddNewChildSubmit = document.getElementsByClassName('addNewChildSubmit')[0];
   AddNewChildSubmit.onclick = function (e) {
     e.preventDefault();
+    console.log('you are submiting a new child');
     var _add = document.getElementById('NewChildWalletAddress').value;
+    var _parent = web3.eth.accounts[0];
     var _nickname = '"' + document.getElementById('NewChildNickname').value + '"';
-    addNewChild(_add, _nickname);
+    // CHECK LOGIC!
+    var canSubmit = 1;
+    var error     = '';
+    _add          = _add.toUpperCase();
+    _parent       = _parent.toUpperCase();
+
+    if (_add.localeCompare(_parent) === 0) {
+      canSubmit = 0;
+      error = 'You are trying to add yourself as a child.  Please use another address.';
+    }
+    if(yourChildren.length){
+      console.log('you have kids.',yourChildren);
+      var yourChildrenAddresses = yourChildren[1];
+      for (var mk = 0; mk < yourChildrenAddresses.length; mk++){
+        console.log('a kid...', mk);
+        if(yourChildrenAddresses[mk] === _add){
+          canSubmit = 0;
+          error = 'You have already added this child.';
+        }
+      }
+    }
+    console.log(canSubmit, error);
+
+    if(canSubmit > 0){
+      document.getElementById('NewChildErrors').innerHTML = '';
+      document.getElementById('NewChildErrors').classList.remove('active');
+      addNewChild(_add, _nickname);
+    } else {
+      console.log('cant send');
+      document.getElementById('NewChildErrors').innerHTML = error;
+      document.getElementById('NewChildErrors').classList.add('active');
+      //NewChildErrors
+    }
   }
 
   function addNewChild(_add, _nickname){
@@ -427,6 +464,18 @@ window.onload = function () {
     });
   }
 
+  function getChildName(_child) {
+    return new Promise(function (resolve, reject) {
+      contractInstanceRead.getChildNameByAddress.call(_child, function (error, result) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  }
+
   function getReviewTasks(page){
     var _parent = web3.eth.accounts[0];
     return new Promise(function (resolve, reject) {
@@ -541,10 +590,8 @@ window.onload = function () {
   }
 
   function setUpTasks(hasChildren){
-    console.log('has children: ', hasChildren);
     if (hasChildren > 0) {
       getReviewTasks().then(function (data) {
-        console.log('your review tasks', data);
         var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
         if (descriptions.length > 0) {
           // make tasks
@@ -601,10 +648,15 @@ window.onload = function () {
               var cln = taskTemplate.cloneNode(true);
               // Populate Data
               cln.getElementsByClassName('task-bounty-value')[0].innerHTML = bounties[i] + ' GO';
-              cln.getElementsByClassName('task-description-value')[0].innerHTML = web3.toAscii(descriptions[i]);
+              var contentString = '';
+
+              contentString += web3.toAscii(descriptions[i]) + '';
+              cln.getElementsByClassName('task-description-value')[0].innerHTML = contentString;
+
               // Add new task to the task container.
               cln.classList.add('active');
               document.getElementById("ParentActiveTasksContainer").appendChild(cln);
+
             }
           }
         } else {

@@ -7728,6 +7728,13 @@ h5 {
   .loading.active {
     display: flex; }
 
+.error-container {
+  color: red;
+  padding-bottom: 0.25rem;
+  display: none; }
+  .error-container.active {
+    display: block; }
+
 .home-link {
   justify-content: space-around;
   align-items: center;
