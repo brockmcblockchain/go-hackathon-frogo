@@ -90,7 +90,7 @@
             <div id="NewChildErrors" class="error-container"></div>
             <div class="field-group">
               <input id="NewChildWalletAddress" name="wallet" type="text" placeholder="GO Wallet Address" />
-              <div class="info">Warning, do not duplicate your childs wallet address</div>
+              <div class="info">Warning - Do not add your child and their wallet address more than once</div>
             </div>
             <div class="field-group">
               <input id="NewChildNickname" name="nickname" type="text" placeholder="Child Nickname (limit: 32 characters)" maxlength="32" />
