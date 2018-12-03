@@ -7710,9 +7710,12 @@ h5 {
     .hero .content h2, .hero .content h4 {
       width: 100%; } }
 
-.dashboard.active,
-.quick-start-guide.active {
-  display: block; }
+.dashboard,
+.quick-start-guide {
+  display: none; }
+  .dashboard.active,
+  .quick-start-guide.active {
+    display: block; }
 
 .quick-start-step {
   display: flex; }

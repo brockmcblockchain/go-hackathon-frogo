@@ -1,6 +1,6 @@
 <section class="section">
 
-<div id="Parent" class="dashboard parent-dashboard">
+<div id="Parent" class="dashboard parent-dashboard <?php echo (array_key_exists('debug', $_REQUEST)) ? ' forced-active ' : ''; ?>">
   <div id="QuickStartGuide" class="quick-start-guide">
     <h3>Quick Start Guide</h3>
     <p>Thanks for Signing up.  To use our service you will need to complete the following:</p>
@@ -106,7 +106,7 @@
   <a id="tasks" name="tasks"></a>
   <div class="section-header">
     <h2>Reviewable Tasks</h2>
-    <a href="#historicalTasks" class="faded">Historical tasks</a>
+    <?php /* <a href="#historicalTasks" class="faded">Historical tasks</a> */ ?>
   </div>
   <p>This is a list of all the completed tasks from your children that have not been paid out yet.  Please review each task for completeness and then <strong>mark Accept</strong> to approve the payment of the bounty.</p>
   <div class="blocks" id="ReviewAbleTaskContainer">
@@ -120,7 +120,7 @@
     </div>
   </div>
 </div>
-<div id="Child" class="dashboard child-dashboard">
+<div id="Child" class="dashboard child-dashboard <?php echo (array_key_exists('debug', $_REQUEST)) ? ' forced-active ' : ''; ?>">
   <h3>Child Dashboard</h3>
   <p>Below you will find a list of assigned an available tasks for you to work.  Once you finish each job you can submit it for review to the Task Creator.  Once approved you will be instantly credited with the bounty.  Keep in mind the bounties decrease the more time passes from when the task was created.</p>
   <div class="blocks" id="ChildTaskContainer">

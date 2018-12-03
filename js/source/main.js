@@ -5,11 +5,11 @@ window.onload = function () {
     var myWeb3 = new Web3(web3.currentProvider || new Web3.providers.HttpProvider("https://testnet-rpc.gochain.io:443"));
     var web3read = new Web3(new Web3.providers.HttpProvider("https://testnet-rpc.gochain.io:443"));
 
-    var abi = JSON.parse('[{"constant":true,"inputs":[{"name":"_parent","type":"address"}],"name":"checkIfChild","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doCompleteTask","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_child","type":"address"}],"name":"addChild","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getAllTasks","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Children","outputs":[{"name":"name","type":"bytes32"},{"name":"parentAddress","type":"address"},{"name":"childAddress","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doChangeTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_creator","type":"address"}],"name":"getReviewTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doRejectTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_value","type":"bytes32"},{"name":"_assignee","type":"address"},{"name":"_startDate","type":"uint128"},{"name":"_endDate","type":"uint128"},{"name":"_bounty","type":"uint128"}],"name":"addTask","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_parent","type":"address"}],"name":"getParentsChildren","outputs":[{"name":"","type":"bytes32[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Tasks","outputs":[{"name":"value","type":"bytes32"},{"name":"creator","type":"address"},{"name":"assignee","type":"address"},{"name":"bounty","type":"uint128"},{"name":"startDate","type":"uint128"},{"name":"endDate","type":"uint128"},{"name":"useDecay","type":"bool"},{"name":"active","type":"bool"},{"name":"review","type":"bool"},{"name":"paid","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_assignee","type":"address"}],"name":"getActiveTasksByChildAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"}]');
+    var abi = JSON.parse('[{"constant":true,"inputs":[{"name":"_parent","type":"address"}],"name":"checkIfChild","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doCompleteTask","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_child","type":"address"}],"name":"addChild","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_creator","type":"address"}],"name":"hasParentMadeTask","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getAllTasks","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Children","outputs":[{"name":"name","type":"bytes32"},{"name":"parentAddress","type":"address"},{"name":"childAddress","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doChangeTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_creator","type":"address"}],"name":"getReviewTasksByParentAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_taskId","type":"uint128"}],"name":"doRejectTaskToReview","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_value","type":"bytes32"},{"name":"_assignee","type":"address"},{"name":"_startDate","type":"uint128"},{"name":"_endDate","type":"uint128"},{"name":"_bounty","type":"uint128"}],"name":"addTask","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_parent","type":"address"}],"name":"getParentsChildren","outputs":[{"name":"","type":"bytes32[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Tasks","outputs":[{"name":"value","type":"bytes32"},{"name":"creator","type":"address"},{"name":"assignee","type":"address"},{"name":"bounty","type":"uint128"},{"name":"startDate","type":"uint128"},{"name":"endDate","type":"uint128"},{"name":"useDecay","type":"bool"},{"name":"active","type":"bool"},{"name":"review","type":"bool"},{"name":"paid","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_assignee","type":"address"}],"name":"getActiveTasksByChildAddress","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"bytes32[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"uint128[]"},{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"}]');
 
     var VotingContract       = web3.eth.contract(abi);
     var VotingContractRead   = web3read.eth.contract(abi);
-    var contractAddress      = '0xF7bE90a7D4954AA84471Fbe9aF0620E66c7F95B7';
+    var contractAddress      = '0x5c476D44534c7e39C2aFD9bc5ac4cF0861ED8fC9';
 
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)
@@ -31,18 +31,8 @@ window.onload = function () {
             populateChildrenList(children);
             hasChildren = 1;
           }
-          
-          /*
-          var result = children.filter(obj => {
-            return obj !== "0x";
-          });
-          */
           checkForTaskCreated().then(function(tasks){
-            // TODO: FILTER THESE
-            var taskCount = tasks.length;
-            if(taskCount > 0) {
-              hasAddedTasks = 1;
-            }
+            hasAddedTasks = tasks;
             displayLayout(dashboard);
           });
         });
@@ -50,7 +40,7 @@ window.onload = function () {
     });
     
     // Reviewable Task Display
-    if(hasChildren == false){
+    if(hasChildren == false && false){
       getReviewTasks().then(function(data){
         var [taskIds, descriptions, bounties, startDates, endDates, assignees] = data;
         if(descriptions.length > 0){
@@ -200,27 +190,23 @@ window.onload = function () {
     addNewChild(_add, _nickname);
   }
   function addNewChild(_add, _nickname){
-    //console.log('sending..', _nickname, ' converted: ', web3.fromAscii(_nickname), _add);
+    // CLEAR CHILD FORM
+    document.getElementById('NewChildWalletAddress').value = '';
+    document.getElementById('NewChildNickname').value = '';
+    document.getElementById('NewChild').classList.remove('active');
+    
     contractInstance.addChild.sendTransaction(web3.fromAscii(_nickname), _add, {from: web3.eth.accounts[0], gas: web3.getGas, to: contractAddress}, function(err, result) {
       if(!err) {
-        // TODO: Change View
-        // CLEAR CHILD FORM
-        // ADD NEW CHILD RECORD TO List
         console.log("Receiver has been set: " + result);
+        setTimeout(function(){
+          addNewChildToList(_nickname, _add);
+        }, 6000);
+        
       }else{
         console.log(err);
       }
     });
   }
-
-  // Add New Task for Child
-  /*
-  var addTaskForChild = document.getElementsByClassName('addTaskForChild');
-  console.log('newTaskForChild', addTaskForChild, addTaskForChild.dataset);
-  onClickDoCallback(addTaskForChild, 'toggle', 'open', function () {
-    addTaskForChildFunctionality();
-  });
-  */
 
   function addTaskForChildFunctionality(childAddress){
     document.getElementById('NewTask').classList.toggle('active');
@@ -267,7 +253,6 @@ window.onload = function () {
   if(addNewTask.length){
     addNewTask[0].onclick = function(e){
       e.preventDefault();
-      console.log('cloneable!');
       var taskTemplate = document.getElementsByClassName("cloneable");
       if(taskTemplate.length){
         var cln = taskTemplate[0].cloneNode(true);
@@ -410,7 +395,7 @@ window.onload = function () {
       document.getElementById('AddFirstTask').classList.add('hidden');
       showStartGuide--;
     }
-    if(showStartGuide){
+    if(showStartGuide > 0){
       document.getElementById('QuickStartGuide').classList.add('active');
     }
   }
@@ -486,7 +471,7 @@ window.onload = function () {
   }
 
   function getActiveTasks(){
-    //var _child = web3.eth.accounts[0];
+    var _child = web3.eth.accounts[0];
     var _child = '0x2C79DD08680A6ce9572C767409C7f71A1Fc6D244';
     return new Promise(function (resolve, reject) {
       contractInstanceRead.getActiveTasksByChildAddress.call(_child, function (error, result) {
@@ -524,44 +509,45 @@ window.onload = function () {
     });
   }
 
+  // TODO: Fix this -- it's pulling even blank stuff.
   function checkForTaskCreated(){
-    if(account){
-      return new Promise(function (resolve, reject) {
-        contractInstanceRead.getReviewTasksByParentAddress.call(account, function (error, result) {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(result);
-          }
-        });
+    var _parent = web3.eth.accounts[0];
+    return new Promise(function (resolve, reject) {
+      contractInstanceRead.hasParentMadeTask.call(_parent, function (error, result) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
       });
-    } else {
-      getAccount().then(function(result){
-        account = result[0];
-        this.checkForTaskCreated;
-      });
-    }
+    });
   }
 
   function populateChildrenList(childrenArrays){
     var names = childrenArrays[0];
     var addresses = childrenArrays[1];
     for(var c = 0; c < addresses.length; c++){
-      var taskTemplate = document.getElementsByClassName("child-template");
-      if(taskTemplate.length){
-        var cln = taskTemplate[0].cloneNode(true);
-        // Populate Data
-        cln.getElementsByClassName('child-name')[0].innerHTML = web3.toAscii(names[c]).replace(/['"]+/g, '');
-        cln.getElementsByClassName('action-container')[0].setAttribute("data-child", addresses[c]);
-        // Add new task to the task container.
-        cln.classList.add('active');
-        cln.onclick = function(e){
-          e.preventDefault();
-          var childAddress = e.target.attributes[1].nodeValue;
-          addTaskForChildFunctionality(childAddress);
-        }
-        document.getElementById("ChildrenContainer").appendChild(cln); 
-      }    
+      if(addresses[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000'){
+        addNewChildToList(names[c], addresses[c]);    
+      }
+    }
+  }
+
+  function addNewChildToList(_name, _address){
+    var taskTemplate = document.getElementsByClassName("child-template");
+    if(taskTemplate.length){
+      var cln = taskTemplate[0].cloneNode(true);
+      // Populate Data
+      cln.getElementsByClassName('child-name')[0].innerHTML = web3.toAscii(_name).replace(/['"]+/g, '');
+      cln.getElementsByClassName('action-container')[0].setAttribute("data-child", _address);
+      // Add new task to the task container.
+      cln.classList.add('active');
+      cln.onclick = function(e){
+        e.preventDefault();
+        var childAddress = e.target.attributes[1].nodeValue;
+        addTaskForChildFunctionality(childAddress);
+      }
+      document.getElementById("ChildrenContainer").appendChild(cln); 
     }
   }
 
