@@ -39,6 +39,9 @@
     color: $blue-dark;
     padding: 1rem;
     margin-bottom: 2rem;
+    &.no-bottom-margin {
+      margin-bottom: 0;
+    }
     i {
       margin-left: 0;
     }

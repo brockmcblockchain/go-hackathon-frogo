@@ -7728,6 +7728,13 @@ h5 {
   .loading.active {
     display: flex; }
 
+.home-link {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  color: #22222b;
+  margin-right: 1rem; }
+
 .dashboard,
 .quick-start-guide,
 .no-account {
@@ -7874,6 +7881,8 @@ header.header.inner {
     color: #22222b;
     padding: 1rem;
     margin-bottom: 2rem; }
+    .btn.white.no-bottom-margin {
+      margin-bottom: 0; }
     .btn.white i {
       margin-left: 0; }
     .btn.white .fa-plus {

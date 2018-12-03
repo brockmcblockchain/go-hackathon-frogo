@@ -17,10 +17,13 @@
         <?php if($page == 'home'): ?>
           <a href="/"><h1 class="logo"><span>Fro-Go</span></h1></a>
         <?php else: ?>
+          <a href="/" class="home-link"><i class="fas fa-home"></i></a>
           <a class="dashboard-logo" href="/dashboard"><h1 class="logo"><span>Fro-Go</span></h1></a>
         <?php endif; ?>
-        <?php if($page == 'home' || $page == 'buy-go'): ?>
+        <?php if($page == 'home'): ?>
           <a class="login-btn btn" href="/dashboard">Signin/up</a>
+        <?php elseif($page == 'buy-go'): ?>
+          <a class="login-btn no-bottom-margin white btn" href="/dashboard">Back to Dashboard</a>
         <?php else: ?>
           <div id="GoBalance" class="go-balance"></div> <a class="buy-go" href="/buy-go"><i class="fas fa-shopping-cart"></i></a>
         <?php endif; ?>

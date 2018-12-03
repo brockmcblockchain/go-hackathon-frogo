@@ -10,6 +10,15 @@
     display: flex;
   }
 }
+
+.home-link {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  color: $blue-dark;
+  margin-right: 1rem;
+}
+
 .dashboard,
 .quick-start-guide,
 .no-account {

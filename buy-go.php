@@ -18,4 +18,7 @@
     <a href="https://www.upbit.com/" target="_blank"><img src="/images/img-upbit.jpg" /></a>
   </div>
   <p>If are totally new to crypto currencies you will need to purchase crypto via a FIAT to Crypto exchange. The following website provides helpful guidance on this stage <a href="https://www.buybitcoinworldwide.com/buy-bitcoin-bank-transfer-account/" target="_blank">https://www.buybitcoinworldwide.com/buy-bitcoin-bank-transfer-account/</a> </p>
+  <div class="centered-content bottom-margin">
+    <a class="login-btn btn" href="/dashboard">Back to Dashboard</a>
+  </div>
 </section>

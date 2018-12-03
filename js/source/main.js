@@ -38,7 +38,8 @@ window.onload = function () {
           var childrenNames     = children[0];
 
           for(var kids = 0; kids < childrenNames.length; kids++){
-            if(childrenAddresses[kids] == '0x0000000000000000000000000000000000000000'){
+            if(childrenAddresses[kids] === '0x0000000000000000000000000000000000000000'
+              || childrenAddresses[kids] === '0x0000000000000000000000000000000000000000000000000000000000000000') {
               childrenAddresses.splice(kids, 1);
               childrenNames.splice(kids, 1);
             }
@@ -46,6 +47,7 @@ window.onload = function () {
           children          = [childrenNames, childrenAddresses];
           childrenAddresses = children[1];
           childrenNames     = children[0];
+          console.log('children', children, childrenAddresses);
           if(childrenNames.length > 0){
             populateChildrenList(children);
             hasChildren = 1;
