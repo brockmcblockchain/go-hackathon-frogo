@@ -68,7 +68,7 @@
     <div class="block child-template cloneable">
       <div class="icon-container"><i class="fas fa-child"></i></div>
       <div class="content child-name"></div>
-      <a class="action-container addTaskForChild" data-child="" href="#addTasks">Add Tasks</a>
+      <a class="action-container addTaskForChild" data-child="" href="#addNewTaskLocation">Add Tasks</a>
     </div>
   </div>
   <div class="centered-content">
@@ -96,7 +96,7 @@
       </div>
     </div>
   </div>
-
+  <a name="addNewTaskLocation" id="addNewTaskLocation"></a>
   <div id="NewTask" class="new-task-container">
     <h3>Add New Tasks</h3>
     <p>Adding a task is as simple. Select the Child.  Add a description for the task and the bounty you're willing to pay.  Each day the child does not complete the task the bounty will drop by 10%.</p>
