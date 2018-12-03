@@ -1,6 +1,8 @@
 <section class="section">
 <div id="Loading" class="loading active">
   <img src="/images/img-loading.gif"/>
+  <div class="loading-info">If this screen does not refresh in 5 seconds hold Shift on your keybaord and refresh your browser.
+</div>
 </div>
 <div id="NoWallet" class="centered no-account">
   <h2>Well this is embarrassing! We can’t create or locate your account right now.</h2>
@@ -88,6 +90,7 @@
             <div id="NewChildErrors" class="error-container"></div>
             <div class="field-group">
               <input id="NewChildWalletAddress" name="wallet" type="text" placeholder="GO Wallet Address" />
+              <div class="info">Warning, do not duplicate your childs wallet address</div>
             </div>
             <div class="field-group">
               <input id="NewChildNickname" name="nickname" type="text" placeholder="Child Nickname" />

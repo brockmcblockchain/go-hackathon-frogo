@@ -1,6 +1,5 @@
 .loading {
   display: none;
-  justify-content: space-around;
   align-items: center;
   height: 70vh;
   img {
@@ -8,7 +7,24 @@
   }
   &.active {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
+}
+
+.info {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  margin-top: -0.6rem;
+  font-style: italic;
+  color: #a7d0c7;
+}
+.loading-info {
+  color: #a5a5b5;
+  font-size: 0.85rem;
+  text-align: center;
+  max-width: 30%;
+  line-height: 1.7;
 }
 
 .error-container {
