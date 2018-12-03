@@ -9,7 +9,7 @@ window.onload = function () {
 
     var VotingContract       = web3.eth.contract(abi);
     var VotingContractRead   = web3read.eth.contract(abi);
-    var contractAddress      = '0x69Caf3CbF476666F5422176eb081f4b867c3D952';
+    var contractAddress      = '0x479F1404191Fb467a0ccF77c00A23802a9D4D41d';
 
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)

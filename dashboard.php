@@ -64,15 +64,15 @@
   <div class="section-header">
     <h2>Children</h2>
   </div>
+  <div class="centered-content">
+    <a href="#addAnotherChild" class="btn AddNewChild white"><i class="fas fa-plus"></i><i class="fas fa-minus"></i> Add New Child</a>
+  </div>
   <div class="blocks" id="ChildrenContainer">
     <div class="block child-template cloneable">
       <div class="icon-container"><i class="fas fa-child"></i></div>
       <div class="content child-name"></div>
       <a class="action-container addTaskForChild" data-child="" href="#addNewTaskLocation">Add Tasks</a>
     </div>
-  </div>
-  <div class="centered-content">
-    <a href="#addAnotherChild" class="btn AddNewChild white"><i class="fas fa-plus"></i><i class="fas fa-minus"></i> Add New Child</a>
   </div>
   <div id="NewChild" class="new-child-container">
     <h3>Add New Child</h3>
