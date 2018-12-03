@@ -110,7 +110,7 @@
         <div class="icon-container"><i class="fas fa-tasks"></i></div>
         <div class="content">
             <div class="field-group">
-              <input name="task" type="text" id="TaskDescription" placeholder="Task Description" maxlength="32" />
+              <input name="task" type="text" id="TaskDescription" placeholder="Task Description (Recommend format Child Name & Task)" maxlength="32" />
             </div>
             <div class="field-group">
               <input name="endDate" type="date" id="TaskEndDate" placeholder="End Date" />
