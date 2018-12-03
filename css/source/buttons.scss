@@ -44,9 +44,11 @@
     }
     .fa-plus {
       display: inline-block;
+      margin-right: 1rem;
     }
     .fa-minus {
       display: none;
+      margin-right: 1rem;
     }
     &.open {
       .fa-plus {

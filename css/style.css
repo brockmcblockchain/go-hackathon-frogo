@@ -7731,11 +7731,13 @@ h5 {
 
 .blocks .block.reviewable-task,
 .blocks .block.active-tasks,
-.blocks .block.child-template {
+.blocks .block.child-template,
+.blocks .block.parent-active-tasks {
   display: none; }
   .blocks .block.reviewable-task.active,
   .blocks .block.active-tasks.active,
-  .blocks .block.child-template.active {
+  .blocks .block.child-template.active,
+  .blocks .block.parent-active-tasks.active {
     display: flex; }
 
 .field-group input {
@@ -7849,9 +7851,11 @@ header.header.inner {
     .btn.white i {
       margin-left: 0; }
     .btn.white .fa-plus {
-      display: inline-block; }
+      display: inline-block;
+      margin-right: 1rem; }
     .btn.white .fa-minus {
-      display: none; }
+      display: none;
+      margin-right: 1rem; }
     .btn.white.open .fa-plus {
       display: none; }
     .btn.white.open .fa-minus {

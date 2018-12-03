@@ -19,7 +19,8 @@
 
 .blocks .block.reviewable-task,
 .blocks .block.active-tasks,
-.blocks .block.child-template {
+.blocks .block.child-template,
+.blocks .block.parent-active-tasks {
   display: none;
   &.active {
     display: flex;

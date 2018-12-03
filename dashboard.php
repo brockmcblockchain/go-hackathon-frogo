@@ -72,7 +72,7 @@
     </div>
   </div>
   <div class="centered-content">
-    <a href="#addAnotherChild" class="btn AddNewChild white"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></a>
+    <a href="#addAnotherChild" class="btn AddNewChild white"><i class="fas fa-plus"></i><i class="fas fa-minus"></i> Add New Child</a>
   </div>
   <div id="NewChild" class="new-child-container">
     <h3>Add New Child</h3>
@@ -149,7 +149,19 @@
       <a class="action-container reject-task warning" href="#rejectTaskReview" data-taskid=""><i class="fas fa-ban"></i> Reject</a>
     </div>
   </div>
+
+  <div class="section-header">
+    <h2>Active Tasks Assigned To Children</h2>
+  </div>
+  <p>This is a list of all the assigned tasks from your children that have not been marked for your review yet.</p>
+  <div class="blocks" id="ParentActiveTasksContainer">
+    <div class="block parent-active-tasks">
+      <div class="icon-container"><span class="task-bounty-value">10 Go</span></div>
+      <div class="content task-description-value"></div>
+    </div>
+  </div>
 </div>
+
 <div id="Child" class="dashboard child-dashboard <?php echo (array_key_exists('debug', $_REQUEST)) ? ' forced-active ' : ''; ?>">
   <h3>Child Dashboard</h3>
   <p>Below you will find a list of assigned an available tasks for you to work.  Once you finish each job you can submit it for review to the Task Creator.  Once approved you will be instantly credited with the bounty.  Keep in mind the bounties decrease the more time passes from when the task was created.</p>
