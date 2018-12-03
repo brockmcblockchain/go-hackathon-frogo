@@ -7667,7 +7667,11 @@ h5 {
   .section {
     padding: 2rem; }
     .section p {
-      width: 100%; } }
+      width: 100%; }
+  .loading-info {
+    padding-left: 2px;
+    padding-right: 2px;
+    max-width: 100%; } }
 
 .hero {
   padding: 4rem;

@@ -1,7 +1,7 @@
 <section class="section">
 <div id="Loading" class="loading active">
   <img src="/images/img-loading.gif"/>
-  <div class="loading-info">If this screen does not refresh in 5 seconds hold Shift on your keybaord and refresh your browser.
+  <div class="loading-info">If this screen does not refresh in 5 seconds hold Shift on your keyboard and refresh your browser.
 </div>
 </div>
 <div id="NoWallet" class="centered no-account">
@@ -93,7 +93,8 @@
               <div class="info">Warning, do not duplicate your childs wallet address</div>
             </div>
             <div class="field-group">
-              <input id="NewChildNickname" name="nickname" type="text" placeholder="Child Nickname" />
+              <input id="NewChildNickname" name="nickname" type="text" placeholder="Child Nickname (limit: 32 characters)" maxlength="32" />
+              <div class="info">Warning, do not use first and last name!</div>
             </div>
           </form>
         </div>
@@ -113,7 +114,7 @@
         <div class="icon-container"><i class="fas fa-tasks"></i></div>
         <div class="content">
             <div class="field-group">
-              <input name="task" type="text" id="TaskDescription" placeholder="Task Description (Recommend format Child Name & Task)" maxlength="32" />
+              <input name="task" type="text" id="TaskDescription" placeholder="Task Description (Recommend format Child Name & Task) limit: 32 characters" maxlength="32" />
             </div>
             <div class="field-group">
               <input name="endDate" type="date" id="TaskEndDate" placeholder="End Date" />
