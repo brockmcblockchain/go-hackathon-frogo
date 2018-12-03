@@ -9,7 +9,7 @@ window.onload = function () {
 
     var VotingContract       = web3.eth.contract(abi);
     var VotingContractRead   = web3read.eth.contract(abi);
-    var contractAddress      = '0x479F1404191Fb467a0ccF77c00A23802a9D4D41d';
+    var contractAddress      = '0x1FE990F96b04688aD41934c753a297A458689166';
 
     var contractInstance     = VotingContract.at(contractAddress);
     var contractInstanceRead = VotingContractRead.at(contractAddress)
@@ -18,14 +18,22 @@ window.onload = function () {
     var hasChildren          = 0;
     var hasAddedTasks        = 0;
 
-    
+
+    web3.eth.getAccounts(function (err, accounts) {
+      if (err != null) {
+        console.error("An error occurred: " + err);
+      } else if (accounts.length == 0){
+        showNoAccount();
+      } else {
+        hideNoAccount();
+      }
+    });
+
     checkIfChild().then(function(isChild){
-      console.log('isChild?', isChild);
       if(isChild == false){
         dashboard = 'Parent';
         hasChildren = 0;
         getChildren().then(function(children){
-          console.log('children', children);
           var childrenAddresses = children[1];
           var childrenNames     = children[0];
           for(var kids = 0; kids < childrenNames.length; kids++){
@@ -46,7 +54,7 @@ window.onload = function () {
         });
       }
     });
-    
+
     // Reviewable Task Display
     if(hasChildren == false){
       getReviewTasks().then(function(data){
@@ -88,7 +96,7 @@ window.onload = function () {
 
                 // Add new task to the task container.
                 cln.classList.add('active');
-                document.getElementById("ReviewAbleTaskContainer").appendChild(cln); 
+                document.getElementById("ReviewAbleTaskContainer").appendChild(cln);
               }
             }
           }
@@ -109,7 +117,7 @@ window.onload = function () {
               cln.getElementsByClassName('task-description-value')[0].innerHTML = web3.toAscii(descriptions[i]);
               // Add new task to the task container.
               cln.classList.add('active');
-              document.getElementById("ParentActiveTasksContainer").appendChild(cln); 
+              document.getElementById("ParentActiveTasksContainer").appendChild(cln);
             }
           }
         } else {
@@ -133,25 +141,25 @@ window.onload = function () {
                 cln.getElementsByClassName('icon-container')[0].innerHTML = '<span>' + bounties[i] + ' GO</span>';
                 var content = web3.toAscii(descriptions[i]) + '<div class="dueDate">Must Complete By: ' + ts + '</div>';
                 cln.getElementsByClassName('content')[0].innerHTML = content;
-                
+
                 cln.getElementsByClassName('mark-task-for-review')[0].dataset.taskid = taskIds[i];
                 cln.getElementsByClassName('mark-task-for-review')[0].dataset.childaddress = assignees[i];
 
                 cln.onclick = function(e){
                   e.preventDefault();
                   var _taskid = e.target.attributes[3].nodeValue;
-                  
+
                   ReviewTaskSubmit(_taskid).then(function(result){
                     console.log('marked for review..', result);
                     indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
                   });
-                  
+
                 }
 
                 // Add new task to the task container.
                 cln.classList.add('active');
                 document.getElementById("ChildTaskContainer").appendChild(cln);
-              } 
+              }
             }
           }
         } else {
@@ -229,8 +237,9 @@ window.onload = function () {
         console.log("Receiver has been set: " + result);
         setTimeout(() => {
           console.log('hash recepit found');
-          addNewChildToList(_nickname, _add);
-        }, 9000);
+          //addNewChildToList(_nickname, _add);
+          location.reload();
+        }, 7500);
       } else{
         console.log(err);
       }
@@ -255,6 +264,9 @@ window.onload = function () {
         document.getElementById('NewTask').classList.remove('active');
 
         console.log("Receiver has been set: " + result);
+        setTimeout(() => {
+          location.reload();
+        }, 7500);
       }else{
         console.log(err);
       }
@@ -263,7 +275,7 @@ window.onload = function () {
 
   var AddNewTaskSubmit = document.getElementById('AddNewTaskSubmit');
   AddNewTaskSubmit.onclick = function (e) {
-    e.preventDefault();
+    //e.preventDefault();
     console.log('you clicked submit new task');
     var _childAddress     = document.getElementById('TaskChildAddress').value;
     var _taskdescription  = web3.fromAscii(document.getElementById('TaskDescription').value);
@@ -286,7 +298,7 @@ window.onload = function () {
   var addNewTask = document.getElementsByClassName("AddNewTask");
   if(addNewTask.length){
     addNewTask[0].onclick = function(e){
-      e.preventDefault();
+      //e.preventDefault();
       var taskTemplate = document.getElementsByClassName("cloneable");
       if(taskTemplate.length){
         var cln = taskTemplate[0].cloneNode(true);
@@ -321,10 +333,10 @@ window.onload = function () {
       ReviewTaskSubmit(_taskid).then(function(result){
         indElm.parentNode.parentNode.parentNode.removeChild(indElm.parentNode.parentNode);
       });
-    
+
     }
   }
-   
+
   function ReviewTaskSubmit(_taskid) {
     return new Promise(function (resolve, reject) {
       console.log('sending..', _taskid);
@@ -363,7 +375,7 @@ window.onload = function () {
       });
     }
   }
-   
+
 
   function RejectTaskSubmit(_taskid){
     return new Promise(function (resolve, reject) {
@@ -389,7 +401,7 @@ window.onload = function () {
     for (var i = 0; i < elm.length; i++) {
       var indElm = elm[i];
       indElm.onclick = function (e) {
-        e.preventDefault();
+        //e.preventDefault();
         if (methodType === 'toggle'){
           indElm.classList.toggle('open');
         }
@@ -575,13 +587,12 @@ window.onload = function () {
     var addresses = childrenArrays[1];
     for(var c = 0; c < addresses.length; c++){
       if(addresses[i] !== '0x0000000000000000000000000000000000000000000000000000000000000000'){
-        addNewChildToList(names[c], addresses[c]);    
+        addNewChildToList(names[c], addresses[c]);
       }
     }
   }
 
   function addNewChildToList(_name, _address){
-    console.log(_name, _address);
     var taskTemplate = document.getElementsByClassName("child-template");
     if(taskTemplate.length){
       var cln = taskTemplate[0].cloneNode(true);
@@ -591,11 +602,11 @@ window.onload = function () {
       // Add new task to the task container.
       cln.classList.add('active');
       cln.onclick = function(e){
-        e.preventDefault();
+        //e.preventDefault();
         var childAddress = e.target.attributes[1].nodeValue;
         addTaskForChildFunctionality(childAddress);
       }
-      document.getElementById("ChildrenContainer").appendChild(cln); 
+      document.getElementById("ChildrenContainer").appendChild(cln);
     }
   }
 

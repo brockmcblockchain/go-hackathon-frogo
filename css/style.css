@@ -7489,7 +7489,7 @@ h5 {
   margin-top: 2rem; }
   .blocks .block {
     background: #fff;
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
     display: flex;
     flex-direction: row;

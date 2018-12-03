@@ -19,7 +19,7 @@
   <div class="centered-content bottom-margin">
     <img src="/images/img-trustwallet.jpg" />
   </div>
-  
+
   <p>Please go to <a href="https://trustwallet.com/" target="_blank">https://trustwallet.com/</a> and download the app for relevant for your device. You can then follow the instructions and have a wallet created quickly and easily. Upon completion you will be able to see the DApps icon at the bottom of the wallet screen, simply click this and select Fro-GO from the list. You will instantly be logged in, easy! For more information on Trust wallet you can watch <a href="https://www.youtube.com/watch?v=712BGhU_4oU" target="_blank">the Trustwallet introduction video</a>. </p>
 
   <p>Second question – So this isn’t your first visit to us and suddenly its all stopped working? If that is the case the first step is to ensure you are connected to your wallet. Make sure you can view your wallet balance and have no issues with its use. If you do then please work through the help guides for the relevant wallet and try again.</p>
@@ -74,6 +74,7 @@
       <a class="action-container addTaskForChild" data-child="" href="#addNewTaskLocation">Add Tasks</a>
     </div>
   </div>
+  <a name="addAnotherChild" id="addAnotherChild"></a>
   <div id="NewChild" class="new-child-container">
     <h3>Add New Child</h3>
     <p>Adding a child is as simple as adding their wallet address and a nick name.   Make sure you <strong>send them at least 1 GO</strong> for transaction fees.</p>
