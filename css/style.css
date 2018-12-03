@@ -7725,6 +7725,15 @@ h5 {
 .child-template {
   display: none; }
 
+.blocks .block.reviewable-task,
+.blocks .block.active-tasks,
+.blocks .block.child-template {
+  display: none; }
+  .blocks .block.reviewable-task.active,
+  .blocks .block.active-tasks.active,
+  .blocks .block.child-template.active {
+    display: flex; }
+
 .field-group input {
   padding: 1rem;
   border-radius: 1rem;

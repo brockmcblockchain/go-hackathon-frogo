@@ -15,3 +15,12 @@
 .child-template {
   display: none;
 }
+
+.blocks .block.reviewable-task,
+.blocks .block.active-tasks,
+.blocks .block.child-template {
+  display: none;
+  &.active {
+    display: flex;
+  }
+}

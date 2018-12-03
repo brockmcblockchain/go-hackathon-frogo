@@ -11,7 +11,7 @@
     <div class="responsive"><iframe src="https://spark.adobe.com/video/fJ2l4cfzkCTBU/embed" width="960" height="540" frameborder="0" allowfullscreen></iframe></div>
   <p>It doesn’t just stop there though. Social responsibility and community awareness are also core to the Fro-GO ethos. Utilising the many functions available within tasks you can create large team activities supported by not only parents but also large organisations or local Government.</p>
   <div class="centered-content">
-    <a href="/parent" class="login-btn btn">Get Started Today</a>
+    <a href="/parent" class=" login-btn btn">Get Started Today</a>
   </div>
 </section>
 <section class="section">

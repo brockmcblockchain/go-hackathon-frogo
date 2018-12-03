@@ -34,7 +34,7 @@
   <div class="section-header">
     <h2>Children</h2>
   </div>
-  <div class="blocks">
+  <div class="blocks" id="ChildrenContainer">
     <div class="block child-template cloneable">
       <div class="icon-container"><i class="fas fa-child"></i></div>
       <div class="content child-name"></div>
@@ -109,7 +109,7 @@
     <a href="#historicalTasks" class="faded">Historical tasks</a>
   </div>
   <p>This is a list of all the completed tasks from your children that have not been paid out yet.  Please review each task for completeness and then <strong>mark Accept</strong> to approve the payment of the bounty.</p>
-  <div class="blocks">
+  <div class="blocks" id="ReviewAbleTaskContainer">
      <div class="block reviewable-task">
       <div class="icon-container"><span>10 Go</span></div>
       <div class="content">
@@ -125,29 +125,13 @@
     <h3>Child Dashboard</h3>
     <p>Below you will find a list of assigned an available tasks for you to work.  Once you finish each job you can submit it for review to the Task Creator.  Once approved you will be instantly credited with the bounty.  Keep in mind the bounties decrease the more time passes from when the task was created.</p>
     <div class="blocks">
-      <div class="block">
-        <div class="icon-container"><span>10 Go</span></div>
-        <div class="content">
+      <div class="block active-tasks">
+        <div class="icon-container"><span class="task-bounty-value">10 Go</span></div>
+        <div class="content task-description-value">
           Take a shower <strong>under 5 Minutes</strong>
-          <div class="dueDate">Month, 20th 2018</div>
+          <div class="dueDate task-end-date">Month, 20th 2018</div>
         </div>
-        <a class="action-container" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
-      </div>
-      <div class="block">
-        <div class="icon-container"><span>5 Go</span></div>
-        <div class="content">
-          Pick up your clothes in the hallway.
-          <div class="dueDate">Month, 20th 2018</div>
-        </div>
-        <a class="action-container" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
-      </div>
-      <div class="block">
-        <div class="icon-container"><span>100 Go</span></div>
-        <div class="content">
-          Clean up the entire street with a toothbrush that you found in the neighbor's trash
-          <div class="dueDate">Month, 20th 2018</div>
-        </div>
-        <a class="action-container" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
+        <a class="action-container MarkTaskForReview" href="#markAsCompleted"><i class="fas fa-check"></i> Mark Complete!</a>
       </div>
     </div>
   </div>
