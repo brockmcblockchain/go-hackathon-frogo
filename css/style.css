@@ -7588,6 +7588,12 @@ h5 {
   justify-content: center; }
   .centered-content.bottom-margin {
     margin-bottom: 2rem; }
+    .centered-content.bottom-margin.logo-container a {
+      text-align: center; }
+      .centered-content.bottom-margin.logo-container a img {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 2rem; }
   .centered-content .btn {
     margin-left: 1rem; }
     .centered-content .btn:first-of-type {
@@ -7712,6 +7718,16 @@ h5 {
     .hero .content h2, .hero .content h4 {
       width: 100%; } }
 
+.loading {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh; }
+  .loading img {
+    width: 30%; }
+  .loading.active {
+    display: flex; }
+
 .dashboard,
 .quick-start-guide,
 .no-account {
@@ -7739,6 +7755,16 @@ h5 {
   .blocks .block.child-template.active,
   .blocks .block.parent-active-tasks.active {
     display: flex; }
+
+.buy-go {
+  margin-left: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #22222b; }
+
+.dashboard-logo {
+  flex: 1; }
 
 .field-group input {
   padding: 1rem;

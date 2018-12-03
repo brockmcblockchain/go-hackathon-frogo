@@ -1,5 +1,7 @@
 <section class="section">
-
+<div id="Loading" class="loading active">
+  <img src="/images/img-loading.gif"/>
+</div>
 <div id="NoWallet" class="centered no-account">
   <h2>Well this is embarrassing! We can’t create or locate your account right now.</h2>
   <p>This could be caused by a few reasons, if you follow the questions and steps below, we will soon have you up and running.
@@ -33,7 +35,7 @@
 <div id="Parent" class="dashboard parent-dashboard <?php echo (array_key_exists('debug', $_REQUEST)) ? ' forced-active ' : ''; ?>">
   <div id="QuickStartGuide" class="quick-start-guide">
     <h3>Quick Start Guide</h3>
-    <p>Thanks for Signing up.  To use our service you will need to complete the following:</p>
+    <p>Welcome to Fro-GO! You now have an account and are just a few short steps away from being able to task your child and rewarding them for making their world a better place (and they will also have fun too!). Each step is detailed below.</p>
     <div class="blocks">
       <div class="block quick-start-step" id="BuyGo">
         <div class="icon-container"><i class="fas fa-shopping-cart"></i></div>

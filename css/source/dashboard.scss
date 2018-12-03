@@ -1,3 +1,15 @@
+.loading {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+  img {
+    width: 30%;
+  }
+  &.active {
+    display: flex;
+  }
+}
 .dashboard,
 .quick-start-guide,
 .no-account {
@@ -25,4 +37,15 @@
   &.active {
     display: flex;
   }
+}
+
+.buy-go {
+  margin-left: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $blue-dark;
+}
+.dashboard-logo {
+  flex: 1;
 }

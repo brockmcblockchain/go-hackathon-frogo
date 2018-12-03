@@ -173,7 +173,18 @@ h5 {
   justify-content: center;
   &.bottom-margin {
     margin-bottom: 2rem;
+    &.logo-container {
+      a {
+        text-align: center;
+        img {
+          width: 50%;
+          margin: 0 auto;
+          margin-bottom: 2rem;
+        }
+      }
+    }
   }
+
   .btn {
     margin-left: 1rem;
     &:first-of-type {

@@ -320,6 +320,7 @@ window.onload = function () {
     if(layout == 'Parent'){
       displayQuickstart();
     }
+    hideLoading();
   }
 
   function displayQuickstart(){
@@ -509,6 +510,12 @@ window.onload = function () {
   }
   function hideNoAccount(){
     document.getElementById('NoWallet').classList.remove('active');
+  }
+  function showLoading() {
+    document.getElementById('Loading').classList.add('active');
+  }
+  function hideLoading() {
+    document.getElementById('Loading').classList.remove('active');
   }
   // Wish i had found this sooner.
   function waitForReceipt(hash, cb) {
